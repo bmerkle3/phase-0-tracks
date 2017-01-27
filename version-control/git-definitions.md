@@ -3,7 +3,7 @@
 **Instructions: ** Define each of the following Git concepts.
 
 * What is version control?  Why is it useful?
-Version control is the system of saving all previous commits for future referance. It is useful because you might add code that unintentionally creates a bug, and want to revert to a previous version of your program. Version control lets you jump back to a version that didn't have the bug, so you can debug by'starting fresh' without losing the work that functioned without any bugs. 
+Version control is the system of saving all previous commits for future reference. It is useful because you might add code that unintentionally creates a bug, and want to revert to a previous version of your program. Version control lets you jump back to a version that didn't have the bug, so you can debug by starting fresh' without losing the work that functioned without any bugs. 
 
 
 * What is a branch and why would you use one?
