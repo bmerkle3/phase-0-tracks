@@ -17,3 +17,8 @@ ul.lists {
 section#contact-info:hover {
   font-size: 2em;
 }
+
+ol li {
+  color: grey;
+  font-size: .8em;
+}
