@@ -9,3 +9,11 @@ section.job {
   margin: 10px 0px 0px 0px;
   border-radius: 25px;
 }
+
+ul.lists {
+  font-size: .8em;
+}
+
+section#contact-info:hover {
+  font-size: 2em;
+}
