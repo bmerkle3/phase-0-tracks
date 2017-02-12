@@ -1,7 +1,7 @@
 #octopus {
   position: absolute; 
-  margin-top: 200px;
-  margin-left: 40%;
+  top: 200px;
+  left: 40%;
   z-index:1;
 
 
@@ -10,13 +10,13 @@
 #hat {
   position: absolute;
   z-index:3;
-  margin-left: 38%;
-  margin-top: 120px;
+  left: 38%;
+  top: 130px;
 }
 
 #glasses {
   position: absolute;
   z-index:2;
-  top: 307px;
-  left: 592px;
+  top: 300px;
+  left: 586px;
 }
