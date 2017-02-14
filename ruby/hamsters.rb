@@ -20,5 +20,8 @@ puts "About what age is this hamster"
 
   if age == ""
     age = nil
-  else 
-    age = gets.chomp
+    else 
+      age = age
+  end
+
+  p age
