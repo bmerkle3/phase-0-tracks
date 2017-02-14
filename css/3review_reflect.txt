@@ -1,0 +1,40 @@
+Name at least three categories of CSS adjustments (example: colors)?
+*opacity
+*position
+*font
+*margins
+*borders
+
+
+What are the three ways to link a CSS rule to an HTML document? Which one is the best and why?
+inline commands
+Internal style sheet 
+external style sheet
+
+The best way to link CSS to rule an HTML document is with an external style sheet. You can make changes to an entire HTML website by changing just one document, and you can group changes together in a way that will take far less time to update in the future if needed. 
+
+
+What is a selector? Give examples of at least three types of selectors.
+A selector is the tag that tells the browser which HTML element to add a certain style to. 
+* h1 
+(any element tag from HTML can be used as a selector)
+
+* #ID_NAME 
+(any ID created in HTML can be called by adding the # sign before the name)
+
+* .CLASS_NAME
+(any Class created in HTML can be called by adding the # sign before the name)
+
+What is the box model?
+ Box Model is the term that refers to the way HTML elements show up as boxes of space on the browser.
+
+Explain and give an example of the cascading effect of CSS.
+There is a hierarchy designated for CSS commands. If multiple commands could affect the style of an HTML element, the most specific commands are the ones that are obeyed first.
+
+For example, if the entire body of a page is designated to have the background color "white",  but there is a paragraph within that body that was designated to have a gray background, the gray background will show on top of the white background, as it is more specific within the body section. 
+
+
+Name two CSS techniques that assist in responsive design.
+* Media Query
+* Fluid Widths
+
