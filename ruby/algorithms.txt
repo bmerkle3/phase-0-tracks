@@ -1,0 +1,35 @@
+Release 0: How to use an elevator
+
+Enter elevator and locate buttons for floors.
+start from top, left corner. This is floor 1 in the United States.
+  until the number of desired floor is encountered, 
+ Count up by increments of 1 with each button.
+  progress straight downwards until no more buttons can be found. 
+    -If the correct number button was found, press the button when it is encountered. 
+    - If the correct number button was not found, return to the top left button you started at without adding additional numbers to the count as you move. Move one button to the right, and increase count by one again.
+      -If the correct number button was found, press the button.
+      -If the correct number button was not found, count up by increments of 1 with each button as you progress straight downwards until no more buttons can be found.
+
+      -If the correct number button was found, press the button when it is encountered. 
+    - If the correct number button was not found, return to the top left button you started at without adding additional numbers to the count as you move. Move one button to the right, and increase count by one again.
+      -If the correct number button was found, press the button.
+      -If the correct number button was not found, count up by increments of 1 with each button as you progress straight downwards until no more buttons can be found.
+
+  Until the correct number of floor is encountered, continue progressing downwards and retracing steps back up to move one space to the right.     
+
+
+
+
+
+
+Release 1: How to alphabetize a list of names 
+
+for every name on a pile of papers:
+  until you run out of letters in the last name:
+
+  -Identify the first letter of the last name.
+  -Match letter to the corresponding folder for that letter.
+    -If another name is already in that folder:
+      - identify the next letter of the last name. Letters that come first in the alphabet should be placed first. 
+    -If no other name is already in that folder: put paper in folder.
+
