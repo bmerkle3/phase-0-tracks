@@ -46,8 +46,8 @@ end
 # decrypt("afe")
 # encrypt("swordfish")
 # decrypt("swordfish")
-
-encrypt(decrypt("swordfish"))
+# 
+# encrypt(decrypt("swordfish"))
 
 
 
@@ -55,25 +55,25 @@ encrypt(decrypt("swordfish"))
 
 
 #interface to ask user if they want to encrypt or decrypt
-# puts "Do you want to encrypt or decrypt?"
-  # process = gets.chomp
-# 
-# 
-    # if process == "encrypt"
-      # puts "Please enter your password."
-    # code = gets.chomp
-    # encrypt(code)
-# 
-    # elsif process == "decrypt"
-      # puts "Please enter your password."
-    # code = gets.chomp
-    # decrypt(code)
-# 
-    # else 
-    # puts "inupt unknown"
-# 
-# end
-# 
+puts "Do you want to encrypt or decrypt?"
+  process = gets.chomp
+
+
+    if process == "encrypt"
+      puts "Please enter your password."
+    code = gets.chomp
+    encrypt(code)
+
+    elsif process == "decrypt"
+      puts "Please enter your password."
+    code = gets.chomp
+    decrypt(code)
+
+    else 
+    puts "inupt unknown"
+
+end
+
 
 
 
