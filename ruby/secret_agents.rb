@@ -16,7 +16,7 @@ characters = "abcdefghijklmnopqrstuvwxyz"
 
   end
   
-puts new_code
+p new_code
 
 end
 
@@ -35,7 +35,7 @@ characters = "abcdefghijklmnopqrstuvwxyz"
 
   end
   
-puts new_code
+p new_code
 
 end
 
