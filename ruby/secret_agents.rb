@@ -22,7 +22,7 @@ end
 def decrypt(code)
   counter = 0
 new_code = ""
-characters = "zabcdefghijklmnopqrstuvwxyz"
+characters = "abcdefghijklmnopqrstuvwxyz"
 
 
   while counter < code.length
@@ -40,7 +40,7 @@ puts new_code
 end
 
 
-puts decrypt ("apple")
+puts decrypt ("zoo")
 
 
 
