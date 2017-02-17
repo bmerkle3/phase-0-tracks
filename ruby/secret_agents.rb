@@ -47,8 +47,9 @@ end
 # encrypt("swordfish")
 # decrypt("swordfish")
 # 
-# encrypt(decrypt("swordfish"))
+# decrypt(encrypt("swordfish"))
 
+# this works because the output of the 'encrypt' method is used as the input of the 'decrypt' method. This is the way software developers 'play with leggos', as it was described in our mini Ruby course
 
 
 
@@ -70,7 +71,7 @@ puts "Do you want to encrypt or decrypt?"
     decrypt(code)
 
     else 
-    puts "inupt unknown"
+    puts "input unknown"
 
 end
 
