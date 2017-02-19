@@ -75,7 +75,7 @@
       An example of a loop method. similar to an if/else and if/elsif statement, but can be used for instances with  more complex combinations of possible outcomes
 
   * until
-      An example of a loop method. 
+      An example of a loop method. A condition starts off by not being present, and the loop continues until the specified condition occurs. THis breaks the loop, and the program can proceed past the loop.
 
 
 
