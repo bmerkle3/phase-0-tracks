@@ -44,13 +44,14 @@ until get_final_result
      puts "Definitely a vampire."
     elsif allergies == "sunshine"
      puts "Probably a vampire"
-   elsif allergies != "sunshine" || ((age.to_i == 2017 - birth_year.to_i) && (garlic_bread == "y" || health_insurance == "y"))
+
+     elsif ((age.to_i == 2017 - birth_year.to_i) && (garlic_bread == "y" || health_insurance == "y"))
      puts "Probably not a vampire"
-   elsif allergies == "sunshine" || ((age.to_i != 2017 - birth_year.to_i) && ((garlic_bread == "y" && health_insurance == "n") || (garlic_bread == "n" && health_insurance == "y")))
+     elsif ((age.to_i != 2017 - birth_year.to_i) && ((garlic_bread == "y" && health_insurance == "n") || (garlic_bread == "n" && health_insurance == "y")))
      puts "Probably a vampire"
-   elsif age.to_i != 2017 - birth_year.to_i && garlic_bread == "n" && health_insurance == "n"
+     elsif age.to_i != 2017 - birth_year.to_i && garlic_bread == "n" && health_insurance == "n"
      puts "Almost certainly a vampire"
-   else 
+     else 
      puts "Results inconclusive"
   end
   
