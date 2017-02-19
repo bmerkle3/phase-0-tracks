@@ -1,0 +1,66 @@
+1. What is a variable? Why might a programmer use a variable?
+  A variable is a piece of information that a programmer wants to store. A programmer would use a variable so they can keep track of the information easier (they can rename it so it can be referred to/ searched for later by a name they will remember)
+
+2. first_name = "Abraham"
+    last_name = "Lincoln"
+    full_name = first_name + last_name
+
+     The computer first will save "Abraham" as the variable called 'first_name'
+     Then, the computer will save "Lincoln" as the variable called 'last_name'.
+     A new variable will be saved by adding the previous two variables. It will look back to what 'first_name' was, and remember that full_name will be Abraham + last_name.
+     Then, it will look back to what the value for'last_name' was, and see that it has to add Abraham + Lincoln.
+
+    It looks like there are no spaces between any of the quotation marks, so the result of full_name will be: 
+    AbrahamLincoln
+
+3. Define and give an example of when you might use the data type in a program: 
+  
+  * string
+      a constant made out of a group of characters (usually readable letters) that are not treated like numbers. It is recognized as being the content between quotation marks.
+  * integer
+      a constant made out of numbers (positive, negative, zero) that don't have a shown decimal place, and can be manipulated the way numbers can be manipulated in mathematics (ie, + - * /).
+  * float
+      a constant made out of numbers (positive, negative, zero) that DO have a shown decimal place, and can be manipulated the way numbers can be manipulated in mathematics (ie, + - * /).
+  * nil
+      denotes that a value is not applicable. Has no value.
+  * boolean
+      a constant whose concept is either true or false.
+
+
+4. What is an algorighm?
+  a set of logical instructions that direct the computer on how to complete a given task
+5. What are two common categories of algorithm in computer science?
+  decrypting characters
+  encryptinc characters
+
+6. What is a method? Why might a programmer choose to use a method?
+  A method is the rule that a computer follows to return a value. Whenever a programmer wants the computer to do something with information that has been provided, it is a method that does the action.
+
+7. Define as they relate to a method: 
+
+  * return value
+      the 'answer'. When information is put into a method, the method runs, and the output is called the return value.
+  * side effect
+     when the output changes or interacts with the computer, that/those changes are considered side effects.
+  * parameter
+      when defining a method that will take an argument, a parameter is the word that stands in the place of where the argument will go. It is like a (hopefully descriptive) place saver
+  * argument
+      the local variable that a method uses to apply changes to. 
+  * implicit return
+      when a computer follows the instructions of a program, it doesn't automatically display the outcome of the program. When it doesn't display the outcome, it can be harder to follow as a programmer, but it usually is preferred because it is much faster than explicit returns, which would display the outcome.
+
+8. What are global scope and method scope? How do those scopes impact the availability of data at different points in a program?
+
+9. What is control flow? Why might a programmer choose to use flow control?
+
+10. Define as they relate to flow control:
+
+  * loop
+  * if
+  * else
+  * elsif
+  * while
+  * until
+
+
+
