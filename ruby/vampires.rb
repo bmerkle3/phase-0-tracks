@@ -30,7 +30,6 @@ until get_final_result
 
     if allergies == "done" 
       get_final_result = true
-      puts "Ok, thanks!"
       
     elsif allergies == "sunshine"
       get_final_result = true
@@ -43,8 +42,8 @@ until get_final_result
   
   if name == "Drake Cula" || name == "Tu Fang"
      puts "Definitely a vampire."
-   # elsif allergies == "sunshine"
-    # puts "Probably a vampire"
+    elsif allergies == "sunshine"
+     puts "Probably a vampire"
    elsif allergies != "sunshine" || ((age.to_i == 2017 - birth_year.to_i) && (garlic_bread == "y" || health_insurance == "y"))
      puts "Probably not a vampire"
    elsif allergies == "sunshine" || ((age.to_i != 2017 - birth_year.to_i) && ((garlic_bread == "y" && health_insurance == "n") || (garlic_bread == "n" && health_insurance == "y")))
