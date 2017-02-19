@@ -50,17 +50,32 @@
       when a computer follows the instructions of a program, it doesn't automatically display the outcome of the program. When it doesn't display the outcome, it can be harder to follow as a programmer, but it usually is preferred because it is much faster than explicit returns, which would display the outcome.
 
 8. What are global scope and method scope? How do those scopes impact the availability of data at different points in a program?
+  These scope refers to the visibility of variables.
+  Global scope refers to the visibility of variables throughout the entire program. Variables set outside of methods are recognized everywhere in the code document (besides within other variables). If a variable is set outside of a method, its value cannot be used or referred to within the method.  
+
+  Method scope refers to variables that are set within methods, because they cannot be recognized outside of that method it was set in. 
 
 9. What is control flow? Why might a programmer choose to use flow control?
+  Control flow is putting the instructions that a computer follows in the correct order. It sometimes means that steps need to be repeated, and can direct this in the order of instructions. 
+  A programmer uses flow control to make sure the code happens in the order he or she intended. If the instructions are followed out of order, the intended outcome will not be achieved, and there wouldn't be a way to automate if instructions are repeated.
 
 10. Define as they relate to flow control:
 
   * loop
+      A loop is the method that allows certain steps to be run over and over again until specified criteria are met
   * if
+      the tag that initiates an if/else or if/elsif statement in Ruby. The statement tells the computer that when one condition exists in a program, a certain action should be carried out. (The 'if' part of the statement lays out the condition that needs to be identified in these statements)
   * else
+      the tag is part of an if/else or if/elsif statement in Ruby. The statement tells the computer that when one condition exists in a program, a certain action should be carried out. The 'if' portion of the statement positively identifies a specific condition, but the 'else' tells the computer that any other condition not matching the 'if' specifications should be handled in the corresponding way
   * elsif
+      The tag used in an if/elsif statement that acts as a second (or third, or fourth...) 'if'.
+      The computer follows if and elseif instructions in the order they appear in the code.
+
   * while
+      An example of a loop method. similar to an if/else and if/elsif statement, but can be used for instances with  more complex combinations of possible outcomes
+
   * until
+      An example of a loop method. 
 
 
 
