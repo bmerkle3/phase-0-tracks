@@ -49,7 +49,7 @@ end
 # 
 # decrypt(encrypt("swordfish"))
 
-# this works because the output of the 'encrypt' method is used as the input of the 'decrypt' method. This is the way software developers 'play with leggos', as it was described in our mini Ruby course
+# at first this didn't work because we had used the method "puts". "p" is the better method to use because we don't get 'nil' as a returned value. this works because the output of the 'encrypt' method is used as the input of the 'decrypt' method. In general, this works because this is the way software developers 'play with LEGOs', as it was described in our mini Ruby course.
 
 
 
