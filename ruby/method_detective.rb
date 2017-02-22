@@ -33,9 +33,9 @@ puts " suspects".insert(0, "the usual")
 # => "The case of the disappearing last lette"
 puts "The case of the disappearing last letter".chop
 
-# "The mystery of the missing first letter".<???>
+# "The mystery of the missing first letter".<#delete("T")>
 # => "he mystery of the missing first letter"
-puts "The mystery of the missing first letter".slice(0)
+puts "The mystery of the missing first letter".delete("T")
 
 # "Elementary,    my   dear        Watson!".<#squeeze>
 # => "Elementary, my dear Watson!"
@@ -45,7 +45,7 @@ puts "Elementary,    my   dear        Watson!".squeeze
 # => 122 
 puts "z".ord
 # (What is the significance of the number 122 in relation to the character z?)
-every letter is assigned a number in the ASCII alphabet. Z has been assigned #122
+# every letter is assigned a number in the ASCII alphabet. Z has been assigned #122
 
 # "How many times does the letter 'a' appear in this string?".<count("a")>
 # => 4
