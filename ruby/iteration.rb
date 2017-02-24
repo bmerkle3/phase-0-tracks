@@ -82,3 +82,7 @@ p letters_numbers.keep_if {|letters_numbers| letters_numbers >= "b"}
 p letters_numbers.select {|letter| letter > "b"}
 
 #4 hashes
+
+#look at hash_pract.rb line 22
+
+
