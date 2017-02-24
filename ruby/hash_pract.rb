@@ -21,11 +21,54 @@ designer_application = {
 
 array2 = [ "orange", "green", "blue", "red", "yellow", "aqua"]
 
-array2.each do |colors|
-  colors.length
-  good_length = 4
-
-    while colors.length < good_length
-      puts colors.chop
-    end
+ array2.each do |color|
+  until array2.length == 2
+  array2.delete_at(-1)
+  end
 end
+ p array2
+
+
+# until array2.length == 2
+  # array2.delete_at(-1)
+# end
+# p array2
+  
+# def change(item_number)
+# index = 0
+#   until array2.length == 2
+#     item_number.each {do }|item_number| item_number -= item_number}
+# end
+# puts array2
+# end
+
+
+
+
+
+
+
+
+
+
+arr = [42, 8, 4, 2]
+
+p arr(42)
+ 
+
+def compare(array, integer)
+index_place == false
+until index_place = true
+  if integer != arr.length-1
+   index -= 1
+
+  else integer = arr.length-1
+    p index_place
+    index = true
+
+  end
+end
+end
+
+
+
