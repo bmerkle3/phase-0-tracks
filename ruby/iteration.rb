@@ -83,16 +83,16 @@ letters_numbers.each_pair do |letters_numbers|
   letters_numbers.delete(letters_numbers <= "d")
   end
 
-  p letters_numbers
 end
 
 p letters_numbers
+
 # letters_numbers.each do
 #   until letters_numbers.length == 2
 #   letters_numbers.delete 
 #   end
 # end
 
-#look at hash_pract.rb line 22
+
 
 
