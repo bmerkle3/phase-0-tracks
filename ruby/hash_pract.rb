@@ -36,4 +36,4 @@ p designer_application[:v]
 
 p designer_application[:name] + designer_application[:address]
 
-p designer_application
+p designer_application.keys
