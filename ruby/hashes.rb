@@ -22,6 +22,8 @@ n = gets.chomp
 
 
 
+
+
 # 2. hash to keep track of data
   # -needs to be mix of string, integer, boolean data
 
