@@ -50,18 +50,14 @@ p array1.select {|x| x > 3 }
 #4 arrays
 array2 = [ "orange", "green", "blue", "red", "yellow", "aqua"]
   
-until array2.length == 2
+
+ array2.each do
+  until array2.length == 2
   array2.delete_at(-1)
+  end
 end
-p array2
+ p array2
 
-# array_size = array2.length
-# array2.each do |array2| 
-#   puts array2 
-#   array2.delete_at(-1)
-# end
-
-# array2.upto(2) {|array2| }
 
 #Hashes
 letters_numbers = {
@@ -82,6 +78,20 @@ p letters_numbers.keep_if {|letters_numbers| letters_numbers >= "b"}
 p letters_numbers.select {|letter| letter > "b"}
 
 #4 hashes
+letters_numbers.each_pair do |letters_numbers|
+  until letters_numbers.length == 2
+  letters_numbers.delete(letters_numbers <= "d")
+  end
+
+  p letters_numbers
+end
+
+p letters_numbers
+# letters_numbers.each do
+#   until letters_numbers.length == 2
+#   letters_numbers.delete 
+#   end
+# end
 
 #look at hash_pract.rb line 22
 
