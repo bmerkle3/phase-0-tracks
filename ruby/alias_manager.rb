@@ -1,41 +1,50 @@
 # 1. allows user to enter a name and have it stored as a variable temporarily
-# puts "enter original name:"
-# original_name = gets.chomp
+puts "enter original name:"
+original_name = gets.chomp
 
-# 2. create a vowel variable (possibly an array?)to replace vowels for new spy name
-#  --> needs to be within the next_vowel method
+# 2. create a vowel data structure containing replacement vowels for new spy name
+#  --> within the next_vowel method
 
-# 3. create consonant variable (possibly an array?) for pool of consonants to create new spy name
-# consonant_arr = [ "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z"]
-# possible_consonants = "bcdfghjklmnpqrstvwxyz"
+#  pool of consonants to create new spy name
 
 # . use .downcase method to make all characters lower case
-# working_copy_name = original_name.downcase.split(' ')
+working_copy_name = original_name.downcase.split('')
 
 # .  use the .split or .chars method to break apart letters
 
 # for each letter, see if the character matches the vowel array
-  # if it does, switch to the next index in the array
-def next_vowel(original_string)
+  # if it does, switch to the next index in the array (#map or #each)
+  # if not, leave the letter alone. 
+  # 
+
+
+  # collection is an array
+def next_vowel(collection)
+  vowel_hash = { a: "e", e: "i", i: "o", o: "u", u: "a" }
+
+  collection.map do |letter|
+    vowel_hash[letter.to_sym] || letter 
+  end
   
+end 
+ 
+p next_vowel(working_copy_name)
 
-  vowel_arr = [ "a", "e", "i", "o", "u" ]
-  match_found = false
+def next_consonant(array_version)
+  consonant_hash = {b: "c", c: "d", d: "f", f: "g", g: "h", h: "j", j: "k", k: "l", l: "m", m: "n", n: "p", p: "q", q: "r", r: "s", s: "t", t: "v", v: "w", w: "x", x: "y", y: "z", z: "b" }
 
-  working_copy_name.each do
-    if working_copy_name.index[i] == vowel_arr.index[i]
-      p "true"
-      # working_copy_name.index[i] += vowel_arr.index[i +1]
-      # match_found = true
-    else
-      working_copy_name.index[i] == working_copy_name.index[i]
-      p "false"
-    end
-
+  array_version.map do |letter|
+    consonant_hash[letter.to_sym] || letter
+  
   end
 
- end 
- 
+
+end
+
+p next_consonant(working_copy_name)
+
+p next_consonant(next_vowel(working_copy_name))
+
 
 
   
@@ -48,4 +57,28 @@ def next_vowel(original_string)
 
 
 # use .join method to put characters together again
-#  use .capitalize to return names to caps on 1st letters only
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
