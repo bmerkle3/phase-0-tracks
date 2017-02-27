@@ -11,8 +11,7 @@ original_name = gets.chomp
 # .  use the .split or .chars method to break apart string into 2 items in array
 
 # p working_copy_name = working_copy_name.reverse
-
-p working_copy_name = original_name.downcase.split('')
+ working_copy_name = original_name.downcase.split('')
 
 # 2. create a vowel data structure containing replacement vowels for new spy name
 #  --> within the next_vowel method
@@ -48,14 +47,16 @@ end
 
 
 
-p nexted_letters =  next_consonant(next_vowel(working_copy_name)).join
+nexted_letters =  next_consonant(next_vowel(working_copy_name)).join
 
 def name_to_array (variable)
   variable.split(' ').reverse
 end
 
-p spy_name_order = name_to_array(nexted_letters)
+spy_name_order = name_to_array(nexted_letters)
 
+final_alias = spy_name_order.map(&:capitalize).join(' ')
+p final_alias
 # def capitalize (n)
 
 # spy_name_order.join(' ')
