@@ -22,7 +22,7 @@ until original_name == "quit"
       # if it does, look at the next key (#map or #each)
       # if not, leave the letter alone. 
     
-      # collection is an array
+      # collection is array
     def next_vowel(collection)
       vowel_hash = { a: "e", e: "i", i: "o", o: "u", u: "a" }
     
@@ -56,8 +56,6 @@ until original_name == "quit"
     def name_to_array (variable)
       variable.split(' ').reverse
     end
-    
-    # spy_name_order = name_to_array(nexted_letters)
     
     
     capital_alias_as_array = name_to_array(nexted_letters).map { |first_letter| first_letter.capitalize }
