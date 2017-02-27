@@ -64,9 +64,10 @@ until original_name == "quit"
     # final_alias = spy_name_order.map(&:capitalize).join(' ')
     p final_alias = capital_alias_as_array.join(' ')
 
-    
+    # creates a database to save names in
 alias_database [final_alias] = original_name
 
+# prints names from database
 alias_database.each do |final, original|
   p "#{final} is the spy name for #{original}."
 end
