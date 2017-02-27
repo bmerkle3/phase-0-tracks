@@ -2,10 +2,11 @@
 
  
 original_name = nil
+alias_database = {}
 until original_name == "quit"
   # 1. allows user to enter a name and have it stored as a variable temporarily
     puts "enter original name or 'quit' to stop"
-      original_name = gets.chomp
+     original_name = gets.chomp
     
     
     # . use .downcase method to make all characters lower case
@@ -62,7 +63,16 @@ until original_name == "quit"
     capital_alias_as_array = name_to_array(nexted_letters).map { |first_letter| first_letter.capitalize }
     # final_alias = spy_name_order.map(&:capitalize).join(' ')
     p final_alias = capital_alias_as_array.join(' ')
+
+    
+alias_database [final_alias] = original_name
+
+alias_database.each do |final, original|
+  p "#{final} is the spy name for #{original}."
 end
+
+end
+
 
 
 
