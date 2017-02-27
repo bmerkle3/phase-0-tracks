@@ -15,4 +15,7 @@
 # Chews on furniture and items on ground
 # Whine (when alone)
 # 
+class Puppy
+end
+
 
