@@ -1,0 +1,27 @@
+Data Structures
+1. Why are data structures useful in programming? 
+  Programmers deal with a ton of data. It isn't plausible to always know how many pieces of information will need to be saved somewhere. Data structures allow a way for the data to be saved without needing to name each piece of data to a variable, or generally keep track of and manipulate a lot information in a hash or array. 
+
+2. Array- data structure that lists a lot of things under the same category. items added to the list can be strings, integers, booleans, nil, just about anything can be stored in an array (including other data structures). They have an index that keeps track of which information is in which place of the list, and this starts count at 0
+
+3. data sets that an array might be good for: 
+  names of children in a classroom
+  favorite restaurants in a city
+
+4. Hash- data structure that lists things with their labels. items added  can be strings, integers, booleans, nil, just about anything can be stored in a hash (including other data structures). They have no index, but can be manipulated to print out an array which would have an index. 
+
+5. data sets well suited for a hash:
+  record temperatures & their dates
+  cities & the state they are in
+
+6. Why is iteration useful?
+  When you need to manipulate the data in an array or hash, iteration allows you to perform the same action to specific parts of the data structure. You can do the same thing to every piece of data, or you can select which parts you want to be affected. They make data usable. Without iteration, data would not be as valuable because it would be harder to work with.
+
+  7. Make sure all of the first letters of the city and state are capitalized on the Hash example above.
+
+8. a Block is a piece of some code that can be run multiple times in a program or in a method. it is a lot cleaner and more concise than code we have been writing until now.
+
+9. A block parameter is the information that gets passed into the block code, and you get to set the value. 
+
+
+
