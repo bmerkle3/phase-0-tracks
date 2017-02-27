@@ -7,11 +7,12 @@ original_name = gets.chomp
 
 
 # . use .downcase method to make all characters lower case
-working_copy_name = original_name.downcase.split('')
-# .  use the .split or .chars method to break apart letters
+# p working_copy_name = original_name.downcase.split('  ')
+# .  use the .split or .chars method to break apart string into 2 items in array
 
+# p working_copy_name = working_copy_name.reverse
 
-
+p working_copy_name = original_name.downcase.split('')
 
 # 2. create a vowel data structure containing replacement vowels for new spy name
 #  --> within the next_vowel method
@@ -47,16 +48,35 @@ end
 
 
 
-nexted_letters =  next_consonant(next_vowel(working_copy_name)).join
+p nexted_letters =  next_consonant(next_vowel(working_copy_name)).join
 
-alias_name_as_array = nexted_letters.split.map(&:capitalize).join(' ')
-p alias_name_as_array
-correct_order_alias = alias_name_as_array.reverse.to_s
+def name_to_array (variable)
+  variable.split(' ').reverse
+end
+
+p spy_name_order = name_to_array(nexted_letters)
+
+# def capitalize (n)
+
+# spy_name_order.join(' ')
+
+# end
+ 
+#  p capitalize(spy_name_order)
 
 
-final_alias = correct_order_alias.capitalize!
 
-puts correct_order_alias
+# # alias_name_as_array = nexted_letters.split.map(&:capitalize).join(' ')
+
+
+# alias_name_as_array = nexted_letters.split(' ')
+# p alias_name_as_array
+# correct_order_alias = alias_name_as_array.reverse.to_s
+
+
+# final_alias = correct_order_alias
+
+# puts final_alias.split.map(&:capitalize).join(' ')
 
 
 
