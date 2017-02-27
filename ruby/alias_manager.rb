@@ -46,6 +46,7 @@ def next_consonant(array_version)
 end
 
 
+# use .join method to put characters together again
 
 nexted_letters =  next_consonant(next_vowel(working_copy_name)).join
 
@@ -53,38 +54,13 @@ def name_to_array (variable)
   variable.split(' ').reverse
 end
 
-spy_name_order = name_to_array(nexted_letters)
-
-final_alias = spy_name_order.map(&:capitalize).join(' ')
-p final_alias
-# def capitalize (n)
-
-# spy_name_order.join(' ')
-
-# end
- 
-#  p capitalize(spy_name_order)
+# spy_name_order = name_to_array(nexted_letters)
 
 
+capital_alias_as_array = name_to_array(nexted_letters).map { |first_letter| first_letter.capitalize }
+# final_alias = spy_name_order.map(&:capitalize).join(' ')
+p final_alias = capital_alias_as_array.join(' ')
 
-# # alias_name_as_array = nexted_letters.split.map(&:capitalize).join(' ')
-
-
-# alias_name_as_array = nexted_letters.split(' ')
-# p alias_name_as_array
-# correct_order_alias = alias_name_as_array.reverse.to_s
-
-
-# final_alias = correct_order_alias
-
-# puts final_alias.split.map(&:capitalize).join(' ')
-
-
-
-
-# def swap_names(array_of_names)
-#   array.reverse! { |array_of_names| puts array_of_names}
-# end
  
   
 
@@ -96,7 +72,6 @@ p final_alias
 # . use a .replace_if method
 
 
-# use .join method to put characters together again
 
 
 
