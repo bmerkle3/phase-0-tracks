@@ -1,4 +1,4 @@
-#encrypting process- each character moves forward one letter in alphabet"
+# ruby#encrypting process- each character moves forward one letter in alphabet"
 def encrypt (code)
   counter = 0
 new_code = ""

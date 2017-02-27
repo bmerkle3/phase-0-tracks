@@ -69,13 +69,13 @@ def sort_array(array)
 
 
   loop do 
-sorted = false
+    sorted = false
 
     (arr-1).times  do |i|
     if array[i] > array[i + 1]
     array[i], array[i + 1] = array[i + 1], array[i]
     sorted = true
-  end
+    end
   end
 
   break if  sorted == false
