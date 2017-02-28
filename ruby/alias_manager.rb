@@ -27,7 +27,13 @@ until original_name == "quit"
       vowel_hash = { a: "e", e: "i", i: "o", o: "u", u: "a" }
     
       collection.map do |letter|
-        vowel_hash[letter.to_sym] || letter 
+        if vowel_hash.include?(letter)
+          vowel_hash[letter.to_sym]
+        else
+          letter
+         end 
+
+        # vowel_hash[letter.to_sym] || letter 
       end
       
     end 
@@ -41,7 +47,13 @@ until original_name == "quit"
       consonant_hash = {b: "c", c: "d", d: "f", f: "g", g: "h", h: "j", j: "k", k: "l", l: "m", m: "n", n: "p", p: "q", q: "r", r: "s", s: "t", t: "v", v: "w", w: "x", x: "y", y: "z", z: "b" }
     
       array_version.map do |letter|
-        consonant_hash[letter.to_sym] || letter
+        if consonant_hash.include?(letter)
+          consonant_hash[letter.to_sym]
+        else
+          letter
+         end 
+
+        # consonant_hash[letter.to_sym] || letter
       
       end
     
