@@ -1,4 +1,3 @@
-
 # Method to create a list
 
 # input: string of items separated by spaces (example: "carrots apples cereal pizza")
@@ -39,4 +38,79 @@
   #print each of the (k,v) pairs with puts 
 
 # output: list printed out
+
+
+#Method Code
+#method that creates list
+def create_list(string)
+  list_array = string.split(" ")
+  list_hash = {}
+  list_array.map {|key| list_hash[key]=1}
+  return list_hash
+end 
+
+#method that adds items to list
+def add_item(list, item, optional_quantity)
+  if optional_quantity == nil
+    list[item] = 1
+  else 
+    list[item] = optional_quantity
+  end 
+  return list
+end 
+
+#method that removes an item from list 
+def remove_item(list, item)
+  list.delete(item)
+  return list 
+end 
+
+#method that updates quantities to items in list
+def update_quantity(list, item, desired_quantity) 
+  if list.include?(item) == true
+    list[item] = desired_quantity
+  end 
+  return list 
+end 
+
+#method that prints list
+def print_list(list)
+  puts "Grocery List"
+  list.each {|key, value| puts "#{key}: qty-#{value}"}
+end 
+
+#User Interface
+puts "Please enter items for grocery list"
+initial_items = gets.chomp
+main_list = create_list(initial_items)
+print_list(main_list)
+
+loop do 
+  puts "Would you like to update quantities (update), add items (add) or remove items (remove)? Or type done"
+  input = gets.chomp
+  
+  break if input == "done"
+  
+  if input == "update"
+    puts "Please enter item to update"
+    update_item = gets.chomp
+    puts "Please enter desired quantity"
+    quan = gets.chomp.to_i
+    main_list = update_quantity(main_list, update_item, quan)
+  elsif input == "add"
+    puts "Please enter item to add"
+    add_item = gets.chomp
+    puts "Please enter quantity of items"
+    add_quan = gets.chomp.to_i
+    main_list = add_item(main_list, add_item, add_quan)
+  elsif input == "remove"
+    puts "Please enter item to remove"
+    remove_item = gets.chomp
+    main_list = remove_item(main_list, remove_item)
+  else 
+    puts "Please enter valid command"
+  end 
+  print_list(main_list)
+end 
+
 
