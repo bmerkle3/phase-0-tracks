@@ -42,9 +42,6 @@ class Santa
     puts "#{reindeer_name} is now in ranking place:"
     puts @reindeer_ranking.index(reindeer_name) + 1
   end
-
-
-
   
   #getter methods... all commented out for refactoring at end of release 3
   # def age
@@ -60,6 +57,8 @@ class Santa
   # end  
 
 end
+
+
 #####
 #Driver code
 
@@ -78,7 +77,7 @@ end
 # santas << Santa.new("gender fluid", "Mystical Creature (unicorn)")
 # santas << Santa.new("N/A", "N/A")
 
-#QUESTION: how to get this to print ethnicity and gender??
+#(was q): how to get this to print ethnicity and gender??
 # santas.each do 
 #   puts "There are now #{santas.length} santa instances in the array" 
 #   puts "---------------------"
@@ -119,6 +118,13 @@ p st_nikita.gender = "bigender"
 ###############################################################################
 ###release 4#####
 ###############################################################################
+#get program to loop about 100 times
+#generate random genders paired with random ethnicity
+  #similar to block above, where index 'i' is variable set to random number
+  # use arr.sample method
+#age to random number between 1-140
+#print Santas attributes
+
 p "release4 starts here"
 
 santas1 = []
@@ -129,18 +135,16 @@ example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer n
   #age = rand(140) #<-- have to add new instance method to randomize age?
 end
 
-vicky = santas1[42]
-p vicky
-p vicky.randomize_age(140)
-p vicky.ethnicity
-p vicky.gender
 
-#get program to loop about 100 times
-#generate random genders paired with random ethnicity
-  #similar to block above, where index 'i' is variable set to random number
-  # use arr.sample method
+santas1.each do |santa|
+    puts santa.ethnicity
+    puts santa.gender
+    puts santa.randomize_age(140)
+    p "_____________________"
+end
 
-#age to random number between 1-140
+
+
 
 
 
