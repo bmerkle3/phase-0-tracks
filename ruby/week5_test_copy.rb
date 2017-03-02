@@ -1,4 +1,23 @@
 
+def calculate(i1, i2, o)
+  if o == "+" 
+    i1 + i2
+  elsif o == "-"
+    i1 - i2
+  elsif o == "*"
+    i1 * i2
+  elsif o == "/"
+    i1 / i2 
+  end
+end
+
+p calculate(1, 2, "+")
+
+
+
+
+
+
 # addition_input = []
 # addition_problem = nil
 
@@ -38,13 +57,34 @@
 
 # p calculate(2, ":+" , 3)
 
+h = {a: "apple", b: "banana", c: "candy", d: "berries"}
 
-operations = {:+ => "+", :- => "-", :* => "*", :/ => "/"}
-def add(i1, op, i3)
-  i1 op i2  
+ p h.key("banana")
+
+
+# p get_key_to_print("banana")
+
+
+
+
+  # operations = { +: "+", -: "-", *: "*", /: "/"}
+
+  operations 
+p operations["+"]
+
+def add(i1, i3, c)
+  operations = {"+" => "+","-" => "-", "*" => "*", "/" => "/"}
+ p operations.send["+"]
+
+  # p i1 o.send i3
 end
 
+p add(2, 4, "+")
 
-p add( 1, :+, 3)
+
+#store calculations in string, then smash into an array
+
+
+# p add( 1, +, 3)
 
 # https://devbootcamp.instructure.com/courses/143/quizzes/2103?module_item_id=40813
