@@ -1,20 +1,111 @@
 class Santa
-end
+  def initialize (gender, ethnicity)
+    @gender = gender
+    @ethnicity  = ethnicity
+    @reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
+    @age = 0
+  end
 
-def speak 
-  puts "Ho, ho, ho! Haaaaaaappy holidays!"
-end
+  def speak 
+    puts "Ho, ho, ho! Haaaaaaappy holidays!"
+  end
+  
+  def eat_milk_and_cookies(cookie_type)
+    puts "That was a good #{cookie_type}!"
+  end
 
-def eat_milk_and_cookies(cookie_type)
-  puts "That was a good #{cookie}!"
-end
+#Had to add this method to get the gender to print: 
+#the @ethnicity only works within this class initialization. To call from 
+#outside, a method is needed. 
+  def states_gender
+    puts "This santa is #{@gender}"
+  end
 
-def initialize
-  puts "Initializing Santa instance..."
-end
+  def states_ethnicity
+    puts "This santa is #{@ethnicity}"
+  end
 
+  def celebrate_birthday
+    @age += 1
+  end
+
+  def get_mad_at(reindeer_name)
+    i= @reindeer_ranking.index(reindeer_name) 
+    @reindeer_ranking.insert(-1, @reindeer_ranking.delete_at(i))
+    puts "#{reindeer_name} is now in ranking place:"
+    puts @reindeer_ranking.index(reindeer_name) + 1
+  end
+
+
+
+  
+  #getter methods
+  def age
+    @age
+  end
+
+  def ethnicity
+    @ethnicity
+  end
+
+  def gender= (new_gender)
+    @gender = new_gender
+  end  
+
+end
 #####
 #Driver code
 
-st_nick = Santa.new
+# st_nick = Santa.new("female", "prefer not to say")
+
+#  st_nick.speak
+
+# st_nick.eat_milk_and_cookies("chocolate chip")
+
+# santas = []
+# santas << Santa.new("agender", "black")
+# santas << Santa.new("female", "Latino")
+# santas << Santa.new("bigender", "white")
+# santas << Santa.new("male", "Japanese")
+# santas << Santa.new("female", "prefer not to say")
+# santas << Santa.new("gender fluid", "Mystical Creature (unicorn)")
+# santas << Santa.new("N/A", "N/A")
+
+#QUESTION: how to get this to print ethnicity and gender??
+# santas.each do 
+#   puts "There are now #{santas.length} santa instances in the array" 
+#   puts "---------------------"
+# end
+
+# refractored version below
+santas = []
+example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
+example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
+example_genders.length.times do |i|
+  santas << Santa.new(example_genders[i], example_ethnicities[i])
+end
+
+
+st_nikita = Santa.new("agender", "Japanese-African")
+# st_nikita.states_gender
+st_nikita.states_ethnicity
+
+#QUESTION: how to get this to print ethnicity and gender (without a getter or setter)?? ANSWER: pass in the 
+#object you want the instance method to be called on (add the "santa" parameter)
+santas.each do |santa|
+  santa.states_gender
+  santa.states_ethnicity
+  puts "There are now #{santas.length} santa instances in the array" 
+  puts "---------------------"
+end
+
+# driver code checking get_mad_at, age, celebrate_birthday, setter method for gender
+st_nikita.get_mad_at("Rudolph")
+p st_nikita.age
+p st_nikita.celebrate_birthday
+p st_nikita.age
+p st_nikita.ethnicity
+p st_nikita.gender = "bigender"
+
+
 
