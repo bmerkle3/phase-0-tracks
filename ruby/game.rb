@@ -24,38 +24,57 @@
 # =>  if statement so repeat guesses don't count against user2
 # => else 'turn' counter increases by one
 
+
+
+
+
 class Word_game
 
-  attr_accessor :word, :word_array, :spaces 
+  attr_accessor :word, :word_array, :spaces, :letters_guessed 
   
 
   def initialize
-    @word = "testing"
-    @word_array = []
+    @word = "testing" #return to "" after testing
+    @word_array = ["t", "e", "s", "t", "i", "n", "g"] #return to [] after testing
     @spaces = ""
+    @spaces_array = ["_", "_", "_", "_", "_", "_", "_"] #return to [] after testing
+    @letters_guessed = []
+    @guess = "t"
   end 
 
   def stores_word
-    @word_array = @word.split("")
+    @word_array = @word.downcase.split("")
     @word_array
   end
 
   def char_to_underscore
     characters = @word.length
     @spaces =  "_" * characters
-    @spaces
+    @spaces_array = @spaces.split("")
+    @spaces_array
   end
 
-  def match_letters(letter)
-    # if @word_array.include?(letter)
-    #   i = @word_array.index
-    #   @spaces(i) = (letter)
-    # end
+  def match_letters
+    @letters_guessed << @guess
+    array_i = []
+    if @word_array.include?(@guess)
+     array_i = @word_array.each_index.select {|ind| @word_array[ind] == @guess}
+      array_i.each {|i| @spaces_array[i] = (@guess)}
+    end
+    @spaces_array
   end
 
 
   def guesses_limit
     # characters = @word.length
+    #Needs to add a counter that ends turn (turns @turn_over = true) when counter == @word.length
+    #if guessed_letter_array.include?(letter)
+      # counter = counter
+    #elsif !guessed_letter_array.include?(letter)
+      #counter += counter
+  end
+
+  def removes_spaces
   end
 
   def compare(word2)
@@ -66,9 +85,14 @@ class Word_game
     # end
   end
 
+  # game = Word_game.new
+  # p game.match_letters("t")
+
 end
 
-puts "please enter a word:"
-    @word = gets.chomp
+# puts "please enter a word:"
+#     @word = gets.chomp
 
+puts "guess a letter:"
+  @guess = gets.chomp
 
