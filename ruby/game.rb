@@ -41,9 +41,9 @@ class Word_game
   end
 
   def char_to_underscore
-    # characters = @word.length
-    # spaces =  "_" * characters
-    # @spaces_arr = spaces.split("")
+    characters = @word.length
+    @spaces =  "_" * characters
+    @spaces
   end
 
   def match_letters(letter)

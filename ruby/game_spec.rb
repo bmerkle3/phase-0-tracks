@@ -9,7 +9,7 @@ describe Word_game do
   end
 
   it "changes characters to underscores" do
-    expect(game.char_to_underscore).to eq "_ _ _ _ "
+    expect(game.char_to_underscore).to eq "_______"
   end
 
   it "sets variable to loop to number of letters in argument" do
