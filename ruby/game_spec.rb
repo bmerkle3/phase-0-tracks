@@ -2,7 +2,11 @@ require_relative 'game'
 
 
 describe Word_game do
-  let (:game) { Word_game.new("word") }
+  let (:game) { Word_game.new }
+
+  it "stores the word that has been entered into the word string & array" do 
+    expect(game.stores_word).to eq ["t", "e", "s", "t", "i", "n", "g"]
+  end
 
   it "changes characters to underscores" do
     expect(game.char_to_underscore).to eq "_ _ _ _ "
