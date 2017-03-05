@@ -25,10 +25,11 @@ class Word_game
   def char_to_underscore(word1)
   end
 
-  def limit_guesses(word1)
+  def guesses_limit(word1)
   end
 
   def compare(word1, word2)
   end
 
 end
+
