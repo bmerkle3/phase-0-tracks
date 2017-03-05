@@ -17,4 +17,18 @@
 # => else 'turn' counter increases by one
 
 class Word_game
+
+  def initialize(word_to_guess)
+    @word = 'word_to_guess' 
+  end 
+
+  def char_to_underscore(word1)
+  end
+
+  def limit_guesses(word1)
+  end
+
+  def compare(word1, word2)
+  end
+
 end
