@@ -18,18 +18,30 @@
 
 class Word_game
 
-  def initialize(word_to_guess)
-    @word = 'word_to_guess' 
+  def initialize (word)
+    @word = word 
   end 
 
-  def char_to_underscore(word1)
+  def char_to_underscore
+    characters = @word.length
+    p "_ " * characters
   end
 
-  def guesses_limit(word1)
+  def guesses_limit
+    characters = @word.length
   end
 
-  def compare(word1, word2)
+  def compare(word2)
+    if @word == word2
+      p "Congratulations, you guessed the word!"
+    else
+      p "Hmmm.. I guess we can't all be mind readers (it really wasn't that hard, though... :P"
+      
+    end
   end
 
+# tesst = Word_game.new("word")
+# tesst.compare("word2")
 end
+
 
