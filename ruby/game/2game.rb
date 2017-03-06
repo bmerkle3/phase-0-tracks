@@ -103,18 +103,14 @@ while game.turns_taken < turns_allowed
     game.guess = gets.chomp
     game.match_letters(game.guess)  #returns string with spaces between underscores& letters
     game.already_guessed
-    # game.turns_taken += 1
-    # game.dup_check = game.letters_guessed.delete_at(-1)
-      #   if game.dup_check.include?(game.guess)
-      #   puts "true"
-      # end
-      # #   turns_taken -+1
-      # # end 
+   
     p game.spaces_array.join(' ') 
     
     p game.letters_guessed
     p game.turns_taken
+
     game.word2 = game.spaces_array.join('')
+    break if game.word2 == game.word
 end
   game.compare
 
