@@ -66,7 +66,7 @@ class Word_game
 
   def already_guessed
     @dup_check = @letters_guessed
-    @dup_check.delete_at(-1)
+    # @dup_check.delete_at(-1)
     if @dup_check.include?(@guess)
       @turns_taken = @turns_taken
     else 
@@ -74,16 +74,11 @@ class Word_game
     end
    end
 
-  # def adds_spaces(array)
-  #    array.join(' ')
-  # end
-
-
   def compare
     if @word == @word2
       p "Congratulations, you guessed the word! It was '#{@word}' "
     else
-      p "Hmmm.. I guess we can't all be mind readers (it really wasn't that hard, though... :P) It was '#{@word}' " 
+      p "Hmmm.. I guess we can't all be mind readers (it really wasn't that hard, though... :P) The word was '#{@word}' " 
     end
   end
 
@@ -108,7 +103,7 @@ while game.turns_taken < turns_allowed
     game.guess = gets.chomp
     game.match_letters(game.guess)  #returns string with spaces between underscores& letters
     game.already_guessed
-    # game.turns_taken += 1
+    game.turns_taken += 1
     # game.dup_check = game.letters_guessed.delete_at(-1)
       #   if game.dup_check.include?(game.guess)
       #   puts "true"
