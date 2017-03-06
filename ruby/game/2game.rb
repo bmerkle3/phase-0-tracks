@@ -93,7 +93,7 @@ game = Word_game.new("pillow")
   
 p game.char_to_underscore #returns string with spaces between underscores
 
-turns_allowed = game.word.length
+turns_allowed = game.word.length * 2
 
 puts "Total number of guesses allowed:"
 p turns_allowed
