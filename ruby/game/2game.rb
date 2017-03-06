@@ -30,7 +30,7 @@
 
 class Word_game
 
-  attr_accessor :word, :word_array, :spaces_array, :letters_guessed, :guess, :word2 
+  attr_accessor :word, :word_array, :spaces_array, :letters_guessed, :guess, :word2, :turns_taken, :dup_check
   attr_reader :turn_over
   
 
@@ -41,6 +41,8 @@ class Word_game
     @letters_guessed = []
     @guess = ""
     @word2 = ""
+    @turns_taken = 0
+    @dup_check
   end 
 
   def char_to_underscore
@@ -50,9 +52,6 @@ class Word_game
     @spaces_array = spaces.split("")
     @spaces_array.join(' ')
   end
-
-
-
 
   def match_letters(letter)
     @guess = letter
@@ -64,6 +63,16 @@ class Word_game
     end
     @spaces_array.join(' ')
   end
+
+  def already_guessed
+    @dup_check = @letters_guessed
+    @dup_check.delete_at(-1)
+    if @dup_check.include?(@guess)
+      @turns_taken = @turns_taken
+    else 
+      @turns_taken +=1
+    end
+   end
 
   # def adds_spaces(array)
   #    array.join(' ')
@@ -87,26 +96,29 @@ end
 puts "Welcome to the Word Game!"
 game = Word_game.new("pillow")
   
-    p game.char_to_underscore #returns string with spaces between underscores
+p game.char_to_underscore #returns string with spaces between underscores
 
-turns_taken = 0
-# p game.word_array
 turns_allowed = game.word.length
+
 puts "Total number of guesses allowed:"
 p turns_allowed
 
-while turns_taken < turns_allowed
+while game.turns_taken < turns_allowed
   puts "please guess a letter:"
     game.guess = gets.chomp
     game.match_letters(game.guess)  #returns string with spaces between underscores& letters
-    turns_taken += 1
-      # p game.letters_guessed.include?(game.guess)
+    game.already_guessed
+    # game.turns_taken += 1
+    # game.dup_check = game.letters_guessed.delete_at(-1)
+      #   if game.dup_check.include?(game.guess)
+      #   puts "true"
+      # end
       # #   turns_taken -+1
       # # end 
     p game.spaces_array.join(' ') 
     
     p game.letters_guessed
-    p turns_taken
+    p game.turns_taken
     game.word2 = game.spaces_array.join('')
 end
   game.compare
