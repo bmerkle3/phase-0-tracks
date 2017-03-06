@@ -145,7 +145,7 @@ end
 
 
 
-
+# how to know what to put inside the class and what to write as progam outside
 
 
 

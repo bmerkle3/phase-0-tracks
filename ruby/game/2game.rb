@@ -3,8 +3,7 @@
   # guess count attr
   # attr is_over (starts as false)
 
-  #interface message telling 1st user to put in a word? -- if this variable stored as 
-   # variable can be set by first user
+ # variable can be set by first user
 
   #interface message tells second user to start guessing, 
 
