@@ -65,8 +65,8 @@ class Word_game
   end
 
   def already_guessed
-    @dup_check = @letters_guessed
-    # @dup_check.delete_at(-1)
+    @dup_check = @letters_guessed.dup
+    @dup_check.delete_at(-1)
     if @dup_check.include?(@guess)
       @turns_taken = @turns_taken
     else 
@@ -103,7 +103,7 @@ while game.turns_taken < turns_allowed
     game.guess = gets.chomp
     game.match_letters(game.guess)  #returns string with spaces between underscores& letters
     game.already_guessed
-    game.turns_taken += 1
+    # game.turns_taken += 1
     # game.dup_check = game.letters_guessed.delete_at(-1)
       #   if game.dup_check.include?(game.guess)
       #   puts "true"
