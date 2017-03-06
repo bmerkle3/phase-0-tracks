@@ -106,8 +106,8 @@ while game.turns_taken < turns_allowed
    
     p game.spaces_array.join(' ') 
     
-    p game.letters_guessed
-    p game.turns_taken
+    # p game.letters_guessed
+    # p game.turns_taken
 
     game.word2 = game.spaces_array.join('')
     break if game.word2 == game.word
