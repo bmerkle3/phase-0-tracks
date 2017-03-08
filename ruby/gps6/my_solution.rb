@@ -4,25 +4,29 @@
 # We spent [#] hours on this challenge.
 
 # EXPLANATION OF require_relative
-#
+# require_relative includes code from a different document in the same directory, 
+# whereas require include the code that is built-in to ruby
 #
 require_relative 'state_data'
 
 class VirusPredictor
-
+  #creates new instance, defines arguments of the class
   def initialize(state_of_origin, population_density, population)
     @state = state_of_origin
     @population = population
     @population_density = population_density
   end
-
+  
+  # makes attributes readable outside of class
   def virus_effects
     predicted_deaths(@population_density, @population, @state)
     speed_of_spread(@population_density, @state)
   end
 
-  private
 
+
+  private
+  # predicts # of deaths based on population density and rounds outcome
   def predicted_deaths(population_density, population, state)
     # predicted deaths is solely based on population density
     if @population_density >= 200
@@ -41,6 +45,7 @@ class VirusPredictor
 
   end
 
+  #predicts speed of spread of disease based on population density
   def speed_of_spread(population_density, state) #in months
     # We are still perfecting our formula here. The speed is also affected
     # by additional factors we haven't added into this functionality.
@@ -69,6 +74,7 @@ end
 # DRIVER CODE
  # initialize VirusPredictor for each state
 
+test_alabama = 
 
 alabama = VirusPredictor.new("Alabama", STATE_DATA["Alabama"][:population_density], STATE_DATA["Alabama"][:population])
 alabama.virus_effects
