@@ -165,20 +165,6 @@ function arraysOfWords(i) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
  // Driver Code /////////////
 //for release 0:
 // var originalArray = ["long phrase", "a", "longest phrase"]
@@ -201,7 +187,20 @@ function arraysOfWords(i) {
 
 // // console.log(keyChecker(obj1Keys, obj2Keys))
 
-// console.log(makesWord())
+
+
+// driver code checks function arraysOfWords works correctly 
 console.log(arraysOfWords(6))
 
-// for (i = 0 ; )
+// does the following 10 times: generates an array, prints the array, feeds the array to your "longest word" function, and prints the result.
+for (i = 0 ; i < 10; i++) {
+  var generatedArray = (arraysOfWords(5))
+  console.log(generatedArray)
+  printLongest(generatedArray)
+}
+
+
+
+
+
+
