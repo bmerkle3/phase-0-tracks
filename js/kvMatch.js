@@ -1,17 +1,17 @@
-/* 
+ 
 //release 1
 
 //creates array : keysToArray
-input is 1 objects --(for some reason I first wrote the function to change 2 objects into arrays, and nothing I tried could get just 1 to work again. every change resulted in an error.)
+// input is 1 objects --(for some reason I first wrote the function to change 2 objects into arrays, and nothing I tried could get just 1 to work again. every change resulted in an error.)
 
-changes key of the objects to an array  
-saves array in method
-returns array
+// changes key of the objects to an array  
+// saves array in method
+// returns array
 
-check if arrays have same value as each other
+// check if arrays have same value as each other
 // 
 // checks key arrays with object: matchArrWithObject
- (try to call the value of the key)
+ // (try to call the value of the key)
 // input is 1 object
 // check each word in array for matches in object
 // if nothing returns, no key matches (the object must return false)
@@ -27,12 +27,39 @@ check if arrays have same value as each other
 // if something returns, save pair as a variable
 // call the matching key on original object (which was turned into an object)
 // if it matches the saved pair variable, there is a key value match
+// //////////////////////////////////////////////////
 
 
-*/
+// takes in two objects
+// for each key of first object, check if there is a match in the second object
+//  if the values are equal, return true
 
-var myVacations = {"Hawaii" : 2 , "Alaska" : 1, "Iceland" : 4, "China" : 0}
+///////////////////////////////////////////SOLUTION////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+function compareObjects(object1, object2) {
+  for (var key in object1) {
+    if (object1[key] === object2[key]) {
+      return true ;
+    }
+    else {
+      return false
+    }
+
+  }
+}
+
+var myVacations = {"Hawaii" : 2 , "Alaska" : 1, "Iceland" : 1, "China" : 0}
 var friendVacations = {"Bali" : 1, "Iceland" :1, "Russia" : 2, "Austria" : 1}
+
+console.log(compareObjects(myVacations, friendVacations))
+
+///////////////////////////////////////////SOLUTION////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
 var sisterVacations = {"Italy" : 1, "Mexico" : 6, "Louisiana" : 6, "Washington DC" : 5}
  var obj1Keys = [];
  test1 = ['Hawaii', 'Alaska', 'Iceland', 'China']
@@ -44,6 +71,7 @@ var matched = ""
 var obj2Keys = [];
 
 
+
 // function keysToArray(obj) {
 //   for (var key in obj) {
 //     objKeys.push(key);
@@ -51,14 +79,12 @@ var obj2Keys = [];
 //   }
 // }
 
-function keysToArray(obj1, obj2) {
+function keysToArray(obj1) {
   for (var key in obj1) {
+    console.log(key)
     objKeys.push(key);
   }
-  for (var key in obj2) {
-    obj2Keys.push(key);
-    return objKeys
-  }
+  return objKeys
 }
 
 function keyChecker(arr1, arr2) {
@@ -86,9 +112,9 @@ else
   return false
 }
 
-console.log(keysToArray(myVacations, friendVacations))
-console.log(finalMethod(myVacations, friendVacations))
-console.log(keyChecker(test1, test2))
+// console.log(keysToArray(myVacations))
+// console.log(finalMethod(myVacations, friendVacations))
+// console.log(keyChecker(test1, test2))
 // returns undefined, but updates the arrays
 
 // // console.log(myVacations)
