@@ -36,16 +36,21 @@ function printLongest(anyStringArray) {
 //release 1
 // creates key arrays
 // input is two objects
-// change objects to 2 arrays of keys 
-// save arrays in method
+// change objects to array of keys 
+// save array in method
 
-// creates value arrays
-// input is two objects
- // 2 arrays of values
- // saves arrays in method
+
 // 
-// check key arrays with key arrays
-// input is 2 arrays
+// check key arrays with object (try to call the value of the key)
+// input is 1 object, 1 array
+// check each word in array for matches in object
+// if nothing returns, no key matches (the object must return false)
+// if something returns, save pair as a variable
+// call the matching key on original object (which was turned into an object)
+// if it matches the saved pair variable, there is a key value match
+
+// 
+
 // start with match as false
 // for each key in objectA, check to see if it matches a key in objectB
   // if match is found, returns true (set to variable for match found = true)
@@ -62,6 +67,15 @@ function printLongest(anyStringArray) {
 // if key-match and value-match are both true, returns true
 // otherwise, returns false
 
+
+
+// extra
+
+
+// creates value arrays
+// input is two objects
+ // 2 arrays of values
+ // saves arrays in method
 var myVacations = {"Hawaii" : 2 , "Alaska" : 1, "Iceland" : 4, "China" : 0}
 var friendVacations = {"Bali" : 1, "Iceland" :1, "Russia" : 2, "Austria" : 1}
 var sisterVacations = {"Italy" : 1, "Mexico" : 6, "Louisiana" : 6, "Washington DC" : 5}
@@ -115,7 +129,7 @@ function keyChecker(arr1, arr2) {
 function checksValue(i) {
   // if obj1[i] === obj2(obj1[i])
 }
-10, 8, 7, 6, 5, 4, 2, 1
+
 
 // function valueChecker(object1, object2) {
 //   var valueMatches = false
