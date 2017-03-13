@@ -55,6 +55,12 @@ var obj1Keys = [];
 var obj2Keys = [];
 var matched = ""
 
+// function keysToArray(object) {
+//   for (var key in object) {
+//     objKeys.push(key);
+//   }
+// }
+
 function keysToArray(obj1, obj2) {
   for (var key in obj1) {
     objKeys.push(key);
@@ -84,7 +90,7 @@ function finalMethod(object1, object2) {
   var object1Array = keysToArray(object1, object1)
   var object2Array = keysToArray(object2, object2)
   return keyChecker(object1Array, object2Array)
-if (object1[matched] === object2[matched])
+if (object1.matched === object2.matched)
   return true
 else
   return false
