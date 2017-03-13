@@ -33,69 +33,65 @@ function printLongest(anyStringArray) {
   sorts(phraseLength) ;
  }
 /////////////////////////////////////////////////////////////////////////////////////
-//release 1
-// creates key arrays
-// input is two objects
-// change objects to array of keys 
-// save array in method
+// input is 1 objects --(for some reason I first wrote the function to change 2 objects into arrays, and nothing I tried could get just 1 to work again. every change resulted in an error.)
 
-
-// 
-// check key arrays with object (try to call the value of the key)
-// input is 1 object, 1 array
-// check each word in array for matches in object
-// if nothing returns, no key matches (the object must return false)
-// if something returns, save pair as a variable
-// call the matching key on original object (which was turned into an object)
-// if it matches the saved pair variable, there is a key value match
-
-// 
 
 // start with match as false
 // for each key in objectA, check to see if it matches a key in objectB
   // if match is found, returns true (set to variable for match found = true)
   // if no match is found, returns false
 
-// Check value arrays with value arrays
-// input is two arrays
-// start with match as false
-// for each value in objectA, check to see if it matches a value in objectB
-  // if match is found, returns true (set to variable for match found = true)
-    // flag to break loop if match is true
-  // if no match is found, returns false
 
-// if key-match and value-match are both true, returns true
+//runs keys to array function
+//runs keychecker function on arrays
+// find the index where the arrays had the same value.  key-match and value-match if both match, function returns true
 // otherwise, returns false
 
-
-
-// extra
-
-
-// creates value arrays
-// input is two objects
- // 2 arrays of values
- // saves arrays in method
 var myVacations = {"Hawaii" : 2 , "Alaska" : 1, "Iceland" : 4, "China" : 0}
 var friendVacations = {"Bali" : 1, "Iceland" :1, "Russia" : 2, "Austria" : 1}
 var sisterVacations = {"Italy" : 1, "Mexico" : 6, "Louisiana" : 6, "Washington DC" : 5}
+ var objKeys = [];
 var obj1Keys = [];
 var obj2Keys = [];
-
-var obj1Values = [];
-var obj2Values = []
+var matched = ""
 
 function keysToArray(obj1, obj2) {
   for (var key in obj1) {
-    obj1Keys.push(key);
+    objKeys.push(key);
   }
   for (var key in obj2) {
     obj2Keys.push(key);
+    return objKeys
   }
- 
-   checksValue(keyChecker(obj1Keys, obj2Keys))
 }
 
+function keyChecker(arr1, arr2) {
+  var keyMatches = false
+  for(var i=0; i < arr1.length; i++) {
+    for(var j=0; j < arr2.length; j++) {
+      if (arr1[i] === arr2[j]) {
+        var matched = arr1[i]
+         console.log(arr1[i]);
+         keyMatches = true;
+         return arr1[i]
+         return (i)
+      }
+    }
+  }
+}
+
+function finalMethod(object1, object2) {
+  var object1Array = keysToArray(object1, object1)
+  var object2Array = keysToArray(object2, object2)
+  return keyChecker(object1Array, object2Array)
+if (object1[matched] === object2[matched])
+  return true
+else
+  return false
+}
+
+/////////////////////////////////////////////////////////
+//extra work that may have been more on the right track...
 // function keysToArray(obj1) {
 //   for (var key in obj1) {
 //     obj1Keys.push(key);
@@ -113,22 +109,22 @@ function keysToArray(obj1, obj2) {
 // }
 
 
-function keyChecker(arr1, arr2) {
-  var keyMatches = false
-  for(var i=0; i < arr1.length; i++) {
-    for(var j=0; j < arr2.length; j++) {
-      if (arr1[i] === arr2[j]) {
-         console.log(arr1[i]);
-         keyMatches = true;
-         return (i)
-      }
-    }
-  }
-}
+// function keyChecker(arr1, arr2) {
+//   var keyMatches = false
+//   for(var i=0; i < arr1.length; i++) {
+//     for(var j=0; j < arr2.length; j++) {
+//       if (arr1[i] === arr2[j]) {
+//          console.log(arr1[i]);
+//          keyMatches = true;
+//          return (i)
+//       }
+//     }
+//   }
+// }
 
-function checksValue(i) {
+// function checksValue(i) {
   // if obj1[i] === obj2(obj1[i])
-}
+// }
 
 
 // function valueChecker(object1, object2) {
@@ -181,15 +177,18 @@ function arraysOfWords(i) {
 
  // Driver Code /////////////
 //for release 0:
-// var originalArray = ["long phrase", "a", "longest phrase"]
-// printLongest(originalArray)
+var originalArray = ["long phrase", "a", "longest phrase"]
+printLongest(originalArray)
 
-// var array1 = ["b", "this is the longest phrase", "sssssss"]
-// printLongest(array1)
+var array1 = ["b", "this is the longest phrase", "sssssss"]
+printLongest(array1)
 
 
 
 // // for release 1
+console.log(keysToArray(myVacations, friendVacations))
+console.log(finalMethod(myVacations, friendVacations))
+
 // // console.log(myVacations)
 // console.log(keysToArray(myVacations, friendVacations))
 // console.log(obj1Keys)
