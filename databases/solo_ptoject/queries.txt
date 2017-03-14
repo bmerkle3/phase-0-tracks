@@ -118,6 +118,30 @@ o:
 c: select gym_class9am.name from gym_class9am left join homeroom_teachers on gym_class9am.homeroom_class_id = homeroom_teachers.teacher_name where gym_class9
 o: 
 
-
+4. <cross join>
+c: select * from gym_class9am cross join homeroom_teachers ;
+o: 
+1|Lisa Kumkwat|7|true|1|1|Mrs. LaCrois
+1|Lisa Kumkwat|7|true|1|2|Mr. Martin
+2|Tom Meyers|7|True|2|1|Mrs. LaCrois
+2|Tom Meyers|7|True|2|2|Mr. Martin
+3|Kassandra Leon|8|True|2|1|Mrs. LaCrois
+3|Kassandra Leon|8|True|2|2|Mr. Martin
+4|Everett Barry|7|True|1|1|Mrs. LaCrois
+4|Everett Barry|7|True|1|2|Mr. Martin
+5|Jake Masters|8|True|1|1|Mrs. LaCrois
+5|Jake Masters|8|True|1|2|Mr. Martin
+6|Katie Beyers|7|True|1|1|Mrs. LaCrois
+6|Katie Beyers|7|True|1|2|Mr. Martin
+7|Carlos Monroe|7|False|2|1|Mrs. LaCrois
+7|Carlos Monroe|7|False|2|2|Mr. Martin
+8|Jake Smith|8|True|2|1|Mrs. LaCrois
+8|Jake Smith|8|True|2|2|Mr. Martin
+9|Irtifa Siddga|7|True|1|1|Mrs. LaCrois
+9|Irtifa Siddga|7|True|1|2|Mr. Martin
+10|Janet Jackson|8|False|2|1|Mrs. LaCrois
+10|Janet Jackson|8|False|2|2|Mr. Martin
+11|Arnold Terma|8|True|2|1|Mrs. LaCrois
+11|Arnold Terma|8|True|2|2|Mr. Martin
 
 
