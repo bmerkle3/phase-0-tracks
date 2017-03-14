@@ -1,0 +1,123 @@
+Release 2:
+#1 Display the information in one table (either table is fine).
+command: select * from gym_class9am;
+output: 
+1|Lisa Kumkwat|7|true|1
+2|Tom Meyers|7|False|2
+3|Kassandra Leon|8|True|2
+4|Everett Barry|7|True|1
+5|Jake Masters|8|True|1
+6|Katie Beyers|7|True|1
+7|Carlos Monroe|7|False|2
+8|Jake Smith|8|True|2
+9|Irtifa Siddga|7|True|1
+10|Janet Jackson|8|False|2
+11|Arnold Terma|8|True|2
+
+#2 Update an item that meets some condition (you can choose a condition that makes sense).
+c:
+update gym_class9am set pe_waiver_signed = "True" where name = "Tom Meyers";
+o: 
+
+#3 Display the information in both tables using one query.
+c:select * from gym_class9am, homeroom_teachers where gym_class9am.homeroom_class_id = homeroom_teachers.id;
+o:
+ 1|Lisa Kumkwat|7|true|1|1|Mrs. LaCrois
+2|Tom Meyers|7|True|2|2|Mr. Martin
+3|Kassandra Leon|8|True|2|2|Mr. Martin
+4|Everett Barry|7|True|1|1|Mrs. LaCrois
+5|Jake Masters|8|True|1|1|Mrs. LaCrois
+6|Katie Beyers|7|True|1|1|Mrs. LaCrois
+7|Carlos Monroe|7|False|2|2|Mr. Martin
+8|Jake Smith|8|True|2|2|Mr. Martin
+9|Irtifa Siddga|7|True|1|1|Mrs. LaCrois
+10|Janet Jackson|8|False|2|2|Mr. Martin
+11|Arnold Terma|8|True|2|2|Mr. Martin
+
+#4 Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
+c: select gym_class9am.name, gym_class9am.pe_waiver_signed, homeroom_teachers.teacher_name from gym_class9am join homeroom_teachers on gym_class9am.homeroom_class_id = homeroom_teachers.id;
+
+o: Lisa Kumkwat|true|Mrs. LaCrois
+Tom Meyers|True|Mr. Martin
+Kassandra Leon|True|Mr. Martin
+Everett Barry|True|Mrs. LaCrois
+Jake Masters|True|Mrs. LaCrois
+Katie Beyers|True|Mrs. LaCrois
+Carlos Monroe|False|Mr. Martin
+Jake Smith|True|Mr. Martin
+Irtifa Siddga|True|Mrs. LaCrois
+Janet Jackson|False|Mr. Martin
+Arnold Terma|True|Mr. Martin
+_______________________________
+c: insert into gym_class9am (name, age, pe_waiver_signed, homeroom_class_id) values ("Everett Barry", 7, "True", 1);
+o:
+
+c:select * from gym_class9am, homeroom_teachers where gym_class9am.homeroom_class_id = homeroom_teachers.id;
+o:
+ 1|Lisa Kumkwat|7|true|1|1|Mrs. LaCrois
+2|Tom Meyers|7|True|2|2|Mr. Martin
+3|Kassandra Leon|8|True|2|2|Mr. Martin
+4|Everett Barry|7|True|1|1|Mrs. LaCrois
+5|Jake Masters|8|True|1|1|Mrs. LaCrois
+6|Katie Beyers|7|True|1|1|Mrs. LaCrois
+7|Carlos Monroe|7|False|2|2|Mr. Martin
+8|Jake Smith|8|True|2|2|Mr. Martin
+9|Irtifa Siddga|7|True|1|1|Mrs. LaCrois
+10|Janet Jackson|8|False|2|2|Mr. Martin
+11|Arnold Terma|8|True|2|2|Mr. Martin
+12|Everett Barry|7|True|1|1|Mrs. LaCrois
+_______________________________
+ #5 Delete an item that meets some condition (you can choose a condition that makes sense).
+ c: delete from gym_class9am where id=12;
+ o: 
+
+ c:select * from gym_class9am, homeroom_teachers where gym_class9am.homeroom_class_id = homeroom_teachers.id;
+
+ 1|Lisa Kumkwat|7|true|1|1|Mrs. LaCrois
+2|Tom Meyers|7|True|2|2|Mr. Martin
+3|Kassandra Leon|8|True|2|2|Mr. Martin
+4|Everett Barry|7|True|1|1|Mrs. LaCrois
+5|Jake Masters|8|True|1|1|Mrs. LaCrois
+6|Katie Beyers|7|True|1|1|Mrs. LaCrois
+7|Carlos Monroe|7|False|2|2|Mr. Martin
+8|Jake Smith|8|True|2|2|Mr. Martin
+9|Irtifa Siddga|7|True|1|1|Mrs. LaCrois
+10|Janet Jackson|8|False|2|2|Mr. Martin
+11|Arnold Terma|8|True|2|2|Mr. Martin
+
+######################################################################################
+Release 3
+
+1. <inner join>
+c:select gym_class9am.name from gym_class9am
+   ...> inner join homeroom_teachers on gym_class9am.homeroom_class_id = homeroom_teachers.teacher_name;
+o:
+(no matching values)
+
+
+2. <left join>
+c: select gym_class9am.id, gym_class9am.name, homeroom_teachers.teacher_name
+   ...> from gym_class9am left join homeroom_teachers
+   ...> on gym_class9am.homeroom_class_id = homeroom_teachers.id
+   ...> order by gym_class9am.id;
+o:
+1|Lisa Kumkwat|Mrs. LaCrois
+2|Tom Meyers|Mr. Martin
+3|Kassandra Leon|Mr. Martin
+4|Everett Barry|Mrs. LaCrois
+5|Jake Masters|Mrs. LaCrois
+6|Katie Beyers|Mrs. LaCrois
+7|Carlos Monroe|Mr. Martin
+8|Jake Smith|Mr. Martin
+9|Irtifa Siddga|Mrs. LaCrois
+10|Janet Jackson|Mr. Martin
+11|Arnold Terma|Mr. Martin
+
+ 
+3. <right excluding Join>
+c: select gym_class9am.name from gym_class9am left join homeroom_teachers on gym_class9am.homeroom_class_id = homeroom_teachers.teacher_name where gym_class9
+o: 
+
+
+
+
