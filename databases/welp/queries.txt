@@ -1,0 +1,8 @@
+CREATE TABLE reviews (id INTEGER PRIMARY KEY, stars INTEGER, comment VARCHAR(255), business_id INTEGER, user_id INTEGER, FOREIGN KEY (business_id) REFERENCES businesses(id), FOREIGN KEY (user_id) REFERENCES users(id));
+
+query to print info on all tables: SELECT users.first_name, reviews.stars, reviews.comment, businesses.name FROM reviews JOIN users, businesses ON reviews.user_id = users.id;
+
+#3
+SELECT users.first_name, reviews.stars, reviews.comment, businesses.name FROM reviews JOIN users, businesses ON reviews.user_id = users.id WHERE businesses.id = reviews.business_id;
+
+#4SELECT * FROM reviews JOIN users, businesses ON reviews.user_id = users.id WHERE reviews.business_id = businesses.id AND businesses.id = 1;
