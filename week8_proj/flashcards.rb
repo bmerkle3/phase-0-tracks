@@ -23,14 +23,14 @@ create_problem_cmd = <<-SQLite3
 SQLite3
 
 create_students_problems_cmd = <<-SQLite3
-  CREATE TABLE IF NOT EXISTS students_problems(
+  CREATE TABLE IF NOT EXISTS students_problems (
     id INTEGER PRIMARY KEY, 
     answered_incorrect INTEGER, 
     answered_correct INTEGER,
-    id_student INTEGER,
-    id_problem INTEGER,
-    FOREIGN KEY (id_student) reference student(id),
-    FOREIGN KEY (id_problem) reference problem(id)
+    id_student INT,
+    id_problem INT,
+    FOREIGN KEY (id_student) references student(id),
+    FOREIGN KEY (id_problem) references problem(id)
   );
 
 SQLite3
@@ -40,5 +40,5 @@ db.execute(create_student_cmd)
 
 db.execute(create_problem_cmd)
 
-# db.execute(create_students_problems_cmd)
+db.execute(create_students_problems_cmd)
 
