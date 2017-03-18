@@ -89,14 +89,13 @@ def populates_problem_tbl(i1, i2)
   p range
 
   range.length.times do |i|
-    p i
     i2 = orig2
-    p i2
     until i2 <= orig1  
       second_integer = (i2 -= 1) + 1
       p problem = "#{i} * #{second_integer}"
     end
     i += 1
+    problem
   end
      
 end
