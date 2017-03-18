@@ -85,8 +85,8 @@ def populates_problem_tbl(i1, i2)
   orig1 = i1
   orig2 = i2
 
-  range.each do 
-    p i1
+  range.each do |i|
+    p i
     # p i2
     until i2 <= i1  
       # p i1
