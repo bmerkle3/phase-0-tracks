@@ -1,3 +1,9 @@
+####additional feature to add: be able to choose which operation
+
+
+
+
+
 #require gems
 require 'sqlite3'
 
@@ -52,17 +58,42 @@ db.execute(create_students_problems_cmd)
 
 def new_student (db, name)
   db.execute("INSERT INTO student (name) VALUES (?)", [name])
-#method to choose which 
+end
+
+#method to choose which operator
 
 
 #method to populate problems table so that user can specify they will practice multiplying 1s-10s 
 #takes in database, integers
 #  populates all problems 
-  # =>  starts at starting integer for first number until it reaches the second integer's value
+  # =>  starts at starting integer for first number, prints integers by increment of 1 in each row of column until it reaches the second integer's value
   # => starts second integer at starting integer, until it reaches second integer's value
   # => saves numbers in a string with the appropriate operator in the middle. 
 #check for duplicates in output (save into array, or find out how to check dupes in SQL... it is possible). Delete duplicates
 #output: string of mathematical problems
+
+#these variables out of place. incorp into user interface section##################
+# integer1 = gets.chomp
+# integer2 = gets.chomp
+
+def populates_problem_tbl(i1, i2)
+  # p "#{i1} * #{i2}"
+  until i1 > i2  
+    testing = (i1 += 1) - 1
+    problem = "#{testing} * #{i2}"
+  end
+   db.execute("INSERT INTO problem (individ_problem) VALUES (?)", [problem])
+
+
+   
+end
+
+
+p populates_problem_tbl(0, 8)
+
+
+
+
 
 #method to calculate answers of problems -- 
   # => takes in string of mathematical problems
