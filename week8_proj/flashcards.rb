@@ -88,13 +88,13 @@ def populates_problem_tbl(i1, i2)
   range.each do |i|
     p i
     # p i2
-    until i2 <= i1  
+    until i2 <= i  
       # p i1
       # p i2
       second_integer = (i2 -= 1) + 1
-      p problem = "#{i1} * #{second_integer}"
+      p problem = "#{i} * #{second_integer}"
     end
-    i1 += 1
+    i += 1
   end
      
 end
