@@ -78,19 +78,26 @@ end
 
 def populates_problem_tbl(i1, i2)
   # p "#{i1} * #{i2}"
-  until i1 > i2  
-    testing = (i1 += 1) - 1
-    problem = "#{testing} * #{i2}"
-  end
-   db.execute("INSERT INTO problem (individ_problem) VALUES (?)", [problem])
-
-
-   
+    # p "#{second_integer} * #{i1}"
+      until i1 > i2  
+        first_integer = (i1 += 1) - 1
+        p problem = "#{first_integer} * #{i2}"
+      end
+  # db.execute("INSERT INTO problem (individ_problem) VALUES (?)", [problem])
 end
 
 
+def decrease_i2(i1, i2)
+  until i2 < i1  
+   second_integer = (i2 -= 1) + 1
+   problem = "#{i1} * #{second_integer} "
+   p problem
+  end
+end
+
 p populates_problem_tbl(0, 8)
 
+p decrease_i2(0, 8)
 
 
 
