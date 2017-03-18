@@ -17,11 +17,14 @@ create_problem_cmd = <<-SQLite3
   CREATE TABLE IF NOT EXISTS problem(
     id INTEGER PRIMARY KEY, 
     individ_problem VARCHAR(255),
+    answer INTEGER,
     problem_set INTEGER
   );
 
 SQLite3
 
+
+#probably move correct and incorrect columns to student table
 create_students_problems_cmd = <<-SQLite3
   CREATE TABLE IF NOT EXISTS students_problems (
     id INTEGER PRIMARY KEY, 
@@ -41,4 +44,60 @@ db.execute(create_student_cmd)
 db.execute(create_problem_cmd)
 
 db.execute(create_students_problems_cmd)
+
+#insert 
+
+#method to create new student by user input
+  #takes string 
+
+def new_student (db, name)
+  db.execute("INSERT INTO student (name) VALUES (?)", [name])
+#method to choose which 
+
+
+#method to populate problems table so that user can specify they will practice multiplying 1s-10s 
+#takes in database, integers
+#  populates all problems 
+  # =>  starts at starting integer for first number until it reaches the second integer's value
+  # => starts second integer at starting integer, until it reaches second integer's value
+  # => saves numbers in a string with the appropriate operator in the middle. 
+#check for duplicates in output (save into array, or find out how to check dupes in SQL... it is possible). Delete duplicates
+#output: string of mathematical problems
+
+#method to calculate answers of problems -- 
+  # => takes in string of mathematical problems
+  # => if operator is *, use the * in problem
+  # => index 0 of string is first integer
+  # => index -1 is second integer
+  # => solve problem, 
+  # => save answer into problem table
+
+# method to populate most of students_problems table (minus answered correct/incorrect? 
+
+
+
+ #assigns each individual problem to a problem-set consisting of max. 5 problems
+ # => problem set variable starts at 1, repeats the group number 5 times so groups are 5 problems long.
+
+#method for user interface: prints next number to be solved
+#query of problem table.
+
+#method to compare answer entered with answer provided
+# => input: integer, string (of problem to solve) or corresponding Primary Key) problem-set counter starts at 1
+#until problem-set counter equals highest multipliers minus lowest multiplier: 
+#if the string put in is equal to the query of the table from answer column, adds the string ID to the answered correct column in the 'student' table. 
+#print congratulatory message
+#move to next problem in problem set
+#if the string put in is not equal to the query of the table from answer column, adds the string to the answered incorrect column in the 'student' table.
+  #duplicate problem in the 'problem' table so they will have to get the problem correct one extra time after they achieve correct answer.
+  #move to next problem in problem set
+# run query of tables for student's questions answered incorrectly of the current problem set 
+#if questions were answered incorrectly or have nothing filled in, repeat those questions 
+#otherwise, add 1 to problem-set counter to start next problem set.
+
+
+
+
+  
+
 
