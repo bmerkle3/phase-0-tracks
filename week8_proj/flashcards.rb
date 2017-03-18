@@ -77,20 +77,22 @@ end
 # integer2 = gets.chomp
 
 def populates_problem_tbl(i1, i2)
+
   if i1 < i2
-   range = (i1..i2)
+   range = (i1..i2).to_a
   else 
-    range = (i2..i1)
+    range = (i2..i1).to_a
   end
   orig1 = i1
   orig2 = i2
 
-  range.each do |i|
+  p range
+
+  range.length.times do |i|
     p i
-    # p i2
-    until i2 <= i  
-      # p i1
-      # p i2
+    i2 = orig2
+    p i2
+    until i2 <= orig1  
       second_integer = (i2 -= 1) + 1
       p problem = "#{i} * #{second_integer}"
     end
