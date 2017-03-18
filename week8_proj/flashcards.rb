@@ -60,6 +60,8 @@ def new_student (db, name)
   db.execute("INSERT INTO student (name) VALUES (?)", [name])
 end
 
+new_student(db, "Braidy")
+
 #method to choose which operator
 
 
@@ -97,21 +99,9 @@ def lists_problems(i1, i2)
     i += 1
   end
   prob_array.shuffle
-  # p prob_array.length
-    # db.execute("INSERT INTO problem (individ_problem) VALUES (?)", [problem])
 end
      
-#method to help save array values into database
-#Input: array of strings containing problems
-#save the return of each array position into a variable
-#output is the variable (a string containing the problem)
 
-def access_array(problems)
-  problems.each do |each_prob|
-     db.execute("INSERT INTO problem (individ_problem) VALUES (?)", [each_prob])
-
-  end
-end
 
 
 #method to calculate answers of problems -- 
@@ -123,48 +113,62 @@ end
   # => output is integer that solves problem 
         # => save answer into problem table
 def calculates(problems)
-  digits = []
   problems.each do |each_prob|
-    digits = each_prob.split" "
-    if digits[1] == "*"
-      p digits[0].to_i * digits[-1].to_i
-  end
+    calculate_problem(each_prob)
   end
 end
 
-
+def calculate_problem(this_prob)
+  digits = this_prob.split" "
+    if digits[1] == "*"
+     p digits[0].to_i * digits[-1].to_i
+  end
+end
 
 # method to populate most of students_problems table (minus answered correct/incorrect? (set to default of incorrect to start)
-
-
 
  #assigns each individual problem to a problem-set consisting of max. 5 problems
  #input is array of problems
  # => problem set variable starts at 1, repeats the group number 5 times so groups are 5 problems long.
 
 def assign_prob_set(problems)
-  counter = 1
-  problem_set = 1
-
-  problems.each do |i|
-   5.times do 
-    p problem_set
-  end
-
-  problem_set += 1
+  counter = 0
+  until counter == problems.length 
+    print_five_times
+    counter += 1
   end
 end
 
-assign_prob_set(lists_problems(1, 5))
+ def print_five_times
+  problem_set = 1
+      p problem_set
+    end
+  problem_set += 1
+end
 
+
+#method to help populate problem table
+#Input: array of strings containing problems
+#save the return of each array position into a variable
+#output is the variable (a string containing the problem)
+
+def access_array(db)
+    problems_array = lists_problems(1, 5)
+    problems_array.each do |this_prob|
+      db.execute("INSERT INTO problem (individ_problem, answer, problem_set) VALUES (?, ?, ?);", [this_prob, calculate_problem(this_prob), assign_prob_set(lists_problems(1, 5))])
+    end 
+
+end
+
+ # access_array(db)
 
 #method for user interface: prints next number to be solved
 #query of problem table.
 
 #method to compare answer entered with answer provided
 # => input: integer, string (of problem to solve) or corresponding Primary Key) problem-set counter starts at 1
-#until problem-set counter equals highest multipliers minus lowest multiplier: 
-#if the string put in is equal to the query of the table from answer column, adds the string ID to the answered correct column in the 'student' table. 
+#until problem-set counter equals length of array of all problems: 
+  #if the string put in is equal to the query of the table from answer column, adds the string ID to the answered correct column in the 'student' table. 
 #print congratulatory message
 #move to next problem in problem set
 #if the string put in is not equal to the query of the table from answer column, adds the string to the answered incorrect column in the 'student' table.
@@ -174,14 +178,24 @@ assign_prob_set(lists_problems(1, 5))
 #if questions were answered incorrectly or have nothing filled in, repeat those questions 
 #otherwise, add 1 to problem-set counter to start next problem set.
 
+# def compare(user_input_int)
+#   until user_input_int == "query of answer column from table"
+#     p "try again"
+#   if user_input_int == "query of answer column from table"
+#     p "That is correct!" 
+#   end
+#   end
+  
+# end
 
 
 
   
 ########################
 #driver code
-p lists_problems(0, 5)
+ # lists_problems(1, 5)
  # p access_array(lists_problems(0, 5))
  ##############################
-# calculates(lists_problems(0, 10))
-# assign_prob_set(lists_problems(1, 10))
+p calculates(lists_problems(0, 10))
+# p assign_prob_set(lists_problems(1, 10))
+
