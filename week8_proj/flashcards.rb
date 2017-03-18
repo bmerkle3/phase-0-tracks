@@ -77,27 +77,39 @@ end
 # integer2 = gets.chomp
 
 def populates_problem_tbl(i1, i2)
-  # p "#{i1} * #{i2}"
     # p "#{second_integer} * #{i1}"
-      until i1 > i2  
-        first_integer = (i1 += 1) - 1
-        p problem = "#{first_integer} * #{i2}"
+    starting_i1 = i1
+    starting_i2 = i2
+    while i2 > starting_i1
+      
+      until i1 > starting_i2  
+        i1_to_print = (i1 += 1) - 1
+        p problem = "#{i1_to_print} * #{starting_i2}"
+        until i2 < starting_i2 
+          second_integer = i2 -= 1
+          p "ok"
+          # problem = "#{i1_to_print} * #{second_integer} "
+          # p problem
+        end
+        
+        
       end
+    end
+        
+      
+     
   # db.execute("INSERT INTO problem (individ_problem) VALUES (?)", [problem])
 end
 
 
-def decrease_i2(i1, i2)
-  until i2 < i1  
-   second_integer = (i2 -= 1) + 1
-   problem = "#{i1} * #{second_integer} "
-   p problem
-  end
-end
+# def decrease_i2(i1, i2)
+  
+#   end
+# end
 
 p populates_problem_tbl(0, 8)
 
-p decrease_i2(0, 8)
+# p decrease_i2(0, 8)
 
 
 
