@@ -68,73 +68,95 @@ end
 #  populates all problems 
   # =>  starts at starting integer for first number, prints integers by increment of 1 in each row of column until it reaches the second integer's value
   # => starts second integer at starting integer, until it reaches second integer's value
-  # => saves numbers in a string with the appropriate operator in the middle. 
-#check for duplicates in output (save into array, or find out how to check dupes in SQL... it is possible). Delete duplicates
-#output: string of mathematical problems
+  # => saves numbers into array of strings with the appropriate operator in the middle. 
+  # => scrambles array so they show up in random order in game
+#output: array of strings
+
 
 #these variables out of place. incorp into user interface section##################
 # integer1 = gets.chomp
 # integer2 = gets.chomp
 
-def populates_problem_tbl(i1, i2)
+def lists_problems(i1, i2)
 
   if i1 < i2
-   range = (i1..i2).to_a
+   range = (i1..i2)
   else 
-    range = (i2..i1).to_a
+    range = (i2..i1)
   end
   orig1 = i1
   orig2 = i2
+  prob_array = []
 
-  p range
-
-  range.length.times do |i|
+  range.each do |i|
     i2 = orig2
     until i2 <= orig1  
       second_integer = (i2 -= 1) + 1
-      p problem = "#{i} * #{second_integer}"
+      prob_array << "#{i} * #{second_integer}"
     end
     i += 1
-    problem
   end
+  prob_array.shuffle
+  # p prob_array.length
+    # db.execute("INSERT INTO problem (individ_problem) VALUES (?)", [problem])
+end
      
+#method to help save array values into database
+#Input: array of strings containing problems
+#save the return of each array position into a variable
+#output is the variable (a string containing the problem)
+
+def access_array(problems)
+  problems.each do |each_prob|
+     db.execute("INSERT INTO problem (individ_problem) VALUES (?)", [each_prob])
+
+  end
 end
 
- #    until i1 > i2  
- #  second_integer = (i1 += 1) - 1
- #  p problem = "#{first_integer} * #{i2}"
- # end 
-     
-  # db.execute("INSERT INTO problem (individ_problem) VALUES (?)", [problem])
-# end
-
-
-# def decrease_i2(i1, i2)
-  
-#   end
-# end
-
-p populates_problem_tbl(0, 8)
-
-# p decrease_i2(0, 8)
-
-# x = (11..11)
-#  x.each {|i| p i }
 
 #method to calculate answers of problems -- 
-  # => takes in string of mathematical problems
-  # => if operator is *, use the * in problem
+  # => takes in an array of string of mathematical problems
+  # => breaks each position down into array of 3 items, no spaces
+  # => if index(2) is *, use the * in problem
   # => index 0 of string is first integer
   # => index -1 is second integer
-  # => solve problem, 
-  # => save answer into problem table
+  # => output is integer that solves problem 
+        # => save answer into problem table
+def calculates(problems)
+  digits = []
+  problems.each do |each_prob|
+    digits = each_prob.split" "
+    if digits[1] == "*"
+      p digits[0].to_i * digits[-1].to_i
+  end
+  end
+end
 
-# method to populate most of students_problems table (minus answered correct/incorrect? 
+
+
+# method to populate most of students_problems table (minus answered correct/incorrect? (set to default of incorrect to start)
 
 
 
  #assigns each individual problem to a problem-set consisting of max. 5 problems
+ #input is array of problems
  # => problem set variable starts at 1, repeats the group number 5 times so groups are 5 problems long.
+
+def assign_prob_set(problems)
+  counter = 1
+  problem_set = 1
+
+  problems.each do |i|
+   5.times do 
+    p problem_set
+  end
+
+  problem_set += 1
+  end
+end
+
+assign_prob_set(lists_problems(1, 5))
+
 
 #method for user interface: prints next number to be solved
 #query of problem table.
@@ -156,5 +178,10 @@ p populates_problem_tbl(0, 8)
 
 
   
-
-
+########################
+#driver code
+p lists_problems(0, 5)
+ # p access_array(lists_problems(0, 5))
+ ##############################
+# calculates(lists_problems(0, 10))
+# assign_prob_set(lists_problems(1, 10))
