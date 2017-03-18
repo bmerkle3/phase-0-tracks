@@ -77,29 +77,35 @@ end
 # integer2 = gets.chomp
 
 def populates_problem_tbl(i1, i2)
-    # p "#{second_integer} * #{i1}"
-    starting_i1 = i1
-    starting_i2 = i2
-    while i2 > starting_i1
-      
-      until i1 > starting_i2  
-        i1_to_print = (i1 += 1) - 1
-        p problem = "#{i1_to_print} * #{starting_i2}"
-        until i2 < starting_i2 
-          second_integer = i2 -= 1
-          p "ok"
-          # problem = "#{i1_to_print} * #{second_integer} "
-          # p problem
-        end
-        
-        
-      end
+  if i1 < i2
+   range = (i1..i2)
+  else 
+    range = (i2..i1)
+  end
+  orig1 = i1
+  orig2 = i2
+
+  range.each do 
+    p i1
+    # p i2
+    until i2 <= i1  
+      # p i1
+      # p i2
+      second_integer = (i2 -= 1) + 1
+      p problem = "#{i1} * #{second_integer}"
     end
-        
-      
+    i1 += 1
+  end
+     
+end
+
+ #    until i1 > i2  
+ #  second_integer = (i1 += 1) - 1
+ #  p problem = "#{first_integer} * #{i2}"
+ # end 
      
   # db.execute("INSERT INTO problem (individ_problem) VALUES (?)", [problem])
-end
+# end
 
 
 # def decrease_i2(i1, i2)
@@ -111,8 +117,8 @@ p populates_problem_tbl(0, 8)
 
 # p decrease_i2(0, 8)
 
-
-
+# x = (11..11)
+#  x.each {|i| p i }
 
 #method to calculate answers of problems -- 
   # => takes in string of mathematical problems
