@@ -23,12 +23,11 @@ create_problem_cmd = <<-SQLite3
   CREATE TABLE IF NOT EXISTS problem(
     id INTEGER PRIMARY KEY, 
     individ_problem VARCHAR(255),
-    answer INTEGER,
-    problem_set INTEGER
+    answer INTEGER
   );
 
 SQLite3
-
+# problem_set INTEGER might be added at later date
 
 #probably move correct and incorrect columns to student table
 create_students_problems_cmd = <<-SQLite3
@@ -131,20 +130,20 @@ end
  #input is array of problems
  # => problem set variable starts at 1, repeats the group number 5 times so groups are 5 problems long.
 
-def assign_prob_set(problems)
-  counter = 0
-  until counter == problems.length 
-    print_five_times
-    counter += 1
-  end
-end
+# def assign_prob_set(problems)
+#   counter = 0
+#   until counter == problems.length 
+#     print_five_times
+#     counter += 1
+#   end
+# end
 
- def print_five_times
-  problem_set = 1
-      p problem_set
-    end
-  problem_set += 1
-end
+#  def print_five_times
+#   problem_set = 1
+#       p problem_set
+#     end
+#   problem_set += 1
+# end
 
 
 #method to help populate problem table
@@ -155,7 +154,7 @@ end
 def access_array(db)
     problems_array = lists_problems(1, 5)
     problems_array.each do |this_prob|
-      db.execute("INSERT INTO problem (individ_problem, answer, problem_set) VALUES (?, ?, ?);", [this_prob, calculate_problem(this_prob), assign_prob_set(lists_problems(1, 5))])
+      db.execute("INSERT INTO problem (individ_problem, answer) VALUES (?, ?);", [this_prob, calculate_problem(this_prob)])
     end 
 
 end
@@ -167,16 +166,17 @@ end
 
 #method to compare answer entered with answer provided
 # => input: integer, string (of problem to solve) or corresponding Primary Key) problem-set counter starts at 1
-#until problem-set counter equals length of array of all problems: 
+#do all problems: 
   #if the string put in is equal to the query of the table from answer column, adds the string ID to the answered correct column in the 'student' table. 
 #print congratulatory message
 #move to next problem in problem set
 #if the string put in is not equal to the query of the table from answer column, adds the string to the answered incorrect column in the 'student' table.
-  #duplicate problem in the 'problem' table so they will have to get the problem correct one extra time after they achieve correct answer.
-  #move to next problem in problem set
+#else just moves to another problem
+  
+  
 # run query of tables for student's questions answered incorrectly of the current problem set 
-#if questions were answered incorrectly or have nothing filled in, repeat those questions 
-#otherwise, add 1 to problem-set counter to start next problem set.
+#if questions were answered incorrectly repeat those questions 
+
 
 # def compare(user_input_int)
 #   until user_input_int == "query of answer column from table"
