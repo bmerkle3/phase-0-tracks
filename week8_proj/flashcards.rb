@@ -135,11 +135,14 @@ end
 
  
 #query of problem table.
-def problem_given_to_student(hashh)
-    random_problem = hashh.to_a.sample
+# def problem_given_to_student(hashh)
+#     random_problem = hashh.to_a.sample
+#   random_problem  
+# end
+def problem_given_to_student(array)
+    random_problem = array.sample
   random_problem  
 end
-
 
 
 input1 = ""
@@ -223,10 +226,10 @@ puts "second number in range:"
 input2 = gets.chomp.to_i
 
 problems_bank = lists_problems(input1, input2)
-hash_of_probs = makes_hash(problems_bank)
+# hash_of_probs = makes_hash(problems_bank)
 
-# correctness = "false"
-hash_of_probs.each do |key, value|
+
+# until problems_bank.length == 0
   correctness = "false"
   until correctness == "true"
     puts "what is #{current_prob}?"
@@ -234,17 +237,17 @@ hash_of_probs.each do |key, value|
     
     if student_solution == correct_answer
         puts "That is correct!" 
-        hash_of_probs[current_prob] = "true"
-        p hash_of_probs[current_prob]
         correctness = "true"
+       
       else 
+        p correct_answer
         puts "nope.try again."
         correctness = "false"
     end
-        hash_of_probs.delete(key)
-
+        problems_bank.delete(current_prob)
   end
-end
+#   p problems_bank
+# end
 
 
 # problems_bank.each do |this_prob|
