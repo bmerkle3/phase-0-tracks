@@ -195,15 +195,14 @@ end
 #if questions were answered incorrectly repeat those questions 
 
 
-def compare(user_input_int)
-  if user_input_int == correct_answer
-    p "That is correct!" 
-    # db.execute("UPDATE students_problems SET answered_correct= "True" WHERE id_problem = ?", )
-  else 
-    p "try again"
-    false
-  end
-end
+# def compare(db, user_input_int)
+#   if user_input_int == correct_answer
+#     p "That is correct!" 
+#     # db.execute("UPDATE students_problems SET answered_correct= "True" WHERE id_problem = ?", )
+#   else 
+#     p "try again"
+#   end
+# end
 
 
 
@@ -245,5 +244,13 @@ i1 = gets.chomp
 puts "second number in range:"
 i2 = gets.chomp
 
+
 puts "what is #{current_prob}?"
-student_solution = gets.chomp
+student_solution = gets.chomp.to_i
+
+if student_solution == correct_answer
+    puts "That is correct!" 
+    # db.execute("UPDATE students_problems SET answered_correct= "True" WHERE id_problem = ?", )
+  else 
+    puts "try again"
+end
