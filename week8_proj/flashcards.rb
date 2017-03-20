@@ -49,8 +49,6 @@ def populate_students_prob(db, true_o_false, students_id, probs_id)
     # end 
 end
 
-#create student table (if not already there)
-
 
 #method to create new student by user input
   #takes string 
@@ -130,23 +128,14 @@ def populate_problem_table(db)
     problems_array.each do |this_prob|
       db.execute("INSERT INTO problem (individ_problem, answer) VALUES (?, ?);", [this_prob, calculate_problem(this_prob)])
     end 
-
 end
 
  
-#query of problem table.
-# def problem_given_to_student(hashh)
-#     random_problem = hashh.to_a.sample
-#   random_problem  
-# end
 def problem_given_to_student(array) 
     random_problem = array.sample
     random_problem  
 end
 
-
-input1 = ""
-input2 = ""
 
 
  
@@ -167,6 +156,9 @@ input2 = ""
 
 ########################
 #driver code
+
+input1 = ""
+input2 = ""
 
 
 db.execute(create_student_cmd)
