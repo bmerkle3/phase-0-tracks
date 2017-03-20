@@ -139,17 +139,15 @@ end
 #     random_problem = hashh.to_a.sample
 #   random_problem  
 # end
-def problem_given_to_student(array)
+def problem_given_to_student(array) 
     random_problem = array.sample
-  random_problem  
+    random_problem  
 end
 
 
 input1 = ""
 input2 = ""
 
-# current_prob = problem_given_to_student(lists_problems(1, 5))
-# input1, input2
 
  
 
@@ -166,18 +164,6 @@ input2 = ""
 # run query of tables for student's questions answered incorrectly of the current problem set 
 #if questions were answered incorrectly repeat those questions 
 
-
-
-
-
-
-# def makes_hash(array)
-#   problem_hash = {}
-#   array.each do |a_value|
-#     problem_hash[a_value] = "false"
-#   end
-#     problem_hash
-# end
 
 ########################
 #driver code
@@ -220,46 +206,38 @@ puts "second number in range:"
 input2 = gets.chomp.to_i
 
 problems_bank = lists_problems(input1, input2)
-# hash_of_probs = makes_hash(problems_bank)
+
 current_prob = problem_given_to_student(problems_bank)
 
 correct_answer = db.execute("SELECT answer FROM problem WHERE individ_problem = ?", [current_prob])[0][0]
 
 prob_id = db.execute("SELECT id FROM problem WHERE individ_problem = ?", [current_prob])[0][0]
 
- # problems_bank.each do |this_item|
+# while problems_bank.length > 0
   correctness = "false"
   until correctness == "true"
+ 
     puts "what is #{current_prob}?"
     student_solution = gets.chomp.to_i
-    
+
     if student_solution == correct_answer
         puts "That is correct!" 
         correctness = "true"
-       
       else 
         p correct_answer
         puts "nope.try again."
         correctness = "false"
     end
         problems_bank.delete(current_prob)
+        # At this point the program should loop back to the "what is 'current_prob" at line 220 for a new problem. When I do get the program to loop back, the current problem doesn't generate a new random problem.        
   end
-#   p problems_bank
 # end
-
 
 populate_students_prob(db, correctness, user_id, prob_id)
 
 puts "thanks for practicing with me!"
 
 
-
-#make array of problems into a hash (values set as default to false)
-#once populated, runs the until loop on each pair so it 
-# removes kv pair each time it runs
-
-
-# if probs are random in the prob array, run down the list of problem ids until end
 
 
 
