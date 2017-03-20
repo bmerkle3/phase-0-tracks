@@ -229,7 +229,7 @@ problems_bank = lists_problems(input1, input2)
 # hash_of_probs = makes_hash(problems_bank)
 
 
-# until problems_bank.length == 0
+ # problems_bank.each do |this_item|
   correctness = "false"
   until correctness == "true"
     puts "what is #{current_prob}?"
@@ -249,33 +249,26 @@ problems_bank = lists_problems(input1, input2)
 #   p problems_bank
 # end
 
-
-# problems_bank.each do |this_prob|
-#   correctness = "false"
+# correctness = "false"
 #   until correctness == "true"
 #     puts "what is #{current_prob}?"
 #     student_solution = gets.chomp.to_i
     
 #     if student_solution == correct_answer
 #         puts "That is correct!" 
-#         # hash_of_probs[current_prob] = "true"
-#         # p hash_of_probs[current_prob]
-#         # hash_of_probs.delete(key)
 #         correctness = "true"
+       
 #       else 
+#         p correct_answer
 #         puts "nope.try again."
 #         correctness = "false"
 #     end
-
+#         problems_bank.delete(current_prob)
 #   end
-# end
-
 
 populate_students_prob(db, correctness, user_id, prob_id)
 
 puts "thanks for practicing with me!"
-
-
 
 
 
@@ -287,6 +280,4 @@ puts "thanks for practicing with me!"
 # if probs are random in the prob array, run down the list of problem ids until end
 
 
-
-# lists_problems(i1, i2)
 
