@@ -117,40 +117,27 @@ def calculate_problem(this_prob)
   end
 end
 
-# method to populate most of students_problems table (minus answered correct/incorrect? (set to default of incorrect to start)
+# method to populate most of students_problems table 
 
-#method to record student id each time they attempt a new problem
-#method to record problem id of each problem
+#method to record same student id each time they attempt a new problem unless user is new
+#takes in string of 'new' or 'returning' 
+def status_checker(status, method)
+  if status == "n"
+    puts "proceed with making new user" 
+  elsif status == "r" 
+    puts "find their id in the table and use that id" 
+  else 
+    puts "enter valid input"
+  end
+end
 
-# def populate_students_prob(db)
-    
-#     problems_array.each do |this_prob|
-#       db.execute("INSERT INTO students_problems (answered_correct, id_student, id_problem) VALUES (?, ?, ?);", ["False", calculate_problem(this_prob)])
-#     end 
-
-# end
 
 
-
-
- #assigns each individual problem to a problem-set consisting of max. 5 problems
- #input is array of problems
- # => problem set variable starts at 1, repeats the group number 5 times so groups are 5 problems long.
-
-# def assign_prob_set(problems)
-#   counter = 0
-#   until counter == problems.length 
-#     print_five_times
-#     counter += 1
-#   end
-# end
-
-#  def print_five_times
-#   problem_set = 1
-#       p problem_set
-#     end
-#   problem_set += 1
-# end
+def populate_students_prob(db, true_o_false, students_id, probs_id)
+    # problems_array.each do |this_prob|
+      db.execute("INSERT INTO students_problems (answered_correct, id_student, id_problem) VALUES (?, ?, ?);", [true_o_false, students_id, probs_id])
+    # end 
+end
 
 
 #method to help populate problem table
@@ -168,7 +155,7 @@ end
 
  
 
-#method for user interface: prints next number to be solved
+#method for user interface: prints next multiplication fact to be solved
 #query of problem table.
 
 def problem_given_to_student(array)
@@ -209,8 +196,7 @@ end
 correct_answer = db.execute("SELECT answer FROM problem WHERE individ_problem = ?", [current_prob])[0][0]
 
 
-
-
+prob_id = db.execute("SELECT id FROM problem WHERE individ_problem = ?", [current_prob])[0][0]
 
 # answer_query = <<-SQL
 # SELECT answer FROM problem WHERE individ_problem = '#{"4 * 4"}'; 
@@ -231,14 +217,26 @@ correct_answer = db.execute("SELECT answer FROM problem WHERE individ_problem = 
 
 
 # access_array(db)
+returning_vs_new = ""
+until returning_vs_new == "n" || returning_vs_new == "r"
+  puts "Are you a new student, or have you played before? If new, enter 'n'. If returning, enter  'r'. "
+  returning_vs_new = gets.chomp
+end
 
 puts "enter user name:"
 user_name = gets.chomp
 
-new_student(db, user_name)
-p db.execute("SELECT id FROM student WHERE name = ?", [user_name])[0][0]
+if returning_vs_new == "n"
+    puts "welcome, #{user_name}!"
+    new_student(db, user_name)
+    user_id = db.execute("SELECT id FROM student WHERE name = ?", [user_name])[0][0]
+  else  
+    puts "Thanks for coming back, #{user_name}!" 
+    user_id = db.execute("SELECT id FROM student WHERE name = ?", [user_name])[0][0]
+end
 
-puts "what range of numbers will you practice today? if you want to practice all multiplication facts from 1 to 10, enter 1 and then enter 10."
+
+puts "what range of numbers will you practice today, #{user_name}? If you want to practice all multiplication facts from 1 to 10, enter 1 and then enter 10."
 puts "first number in range:"
 i1 = gets.chomp
 puts "second number in range:"
@@ -251,6 +249,22 @@ student_solution = gets.chomp.to_i
 if student_solution == correct_answer
     puts "That is correct!" 
     # db.execute("UPDATE students_problems SET answered_correct= "True" WHERE id_problem = ?", )
+    correctness = true
   else 
     puts "try again"
+    correctness = false
 end
+
+populate_students_prob(db, correctness, user_id, prob_id)
+
+
+
+
+
+
+
+
+
+
+
+
