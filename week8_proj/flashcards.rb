@@ -33,8 +33,7 @@ SQL
 create_students_problems_cmd = <<-SQL
   CREATE TABLE IF NOT EXISTS students_problems (
     id INTEGER PRIMARY KEY, 
-    answered_incorrect INTEGER, 
-    answered_correct INTEGER,
+    answered_correct BOOLEAN,
     id_student INT,
     id_problem INT,
     FOREIGN KEY (id_student) references student(id),
@@ -59,7 +58,7 @@ def new_student (db, name)
   db.execute("INSERT INTO student (name) VALUES (?)", [name])
 end
 
-new_student(db, "Braidy")
+
 
 #method to choose which operator
 
@@ -74,9 +73,6 @@ new_student(db, "Braidy")
 #output: array of strings
 
 
-#these variables out of place. incorp into user interface section##################
-# integer1 = gets.chomp
-# integer2 = gets.chomp
 
 def lists_problems(i1, i2)
 
@@ -97,7 +93,7 @@ def lists_problems(i1, i2)
     end
     i += 1
   end
-  prob_array.shuffle
+  prob_array
 end
      
 #method to calculate answers of problems -- 
@@ -122,6 +118,20 @@ def calculate_problem(this_prob)
 end
 
 # method to populate most of students_problems table (minus answered correct/incorrect? (set to default of incorrect to start)
+
+#method to record student id each time they attempt a new problem
+#method to record problem id of each problem
+
+# def populate_students_prob(db)
+    
+#     problems_array.each do |this_prob|
+#       db.execute("INSERT INTO students_problems (answered_correct, id_student, id_problem) VALUES (?, ?, ?);", ["False", calculate_problem(this_prob)])
+#     end 
+
+# end
+
+
+
 
  #assigns each individual problem to a problem-set consisting of max. 5 problems
  #input is array of problems
@@ -148,7 +158,7 @@ end
 #save the return of each array position into a variable
 #output is the variable (a string containing the problem)
 
-def access_array(db)
+def populate_problem_table(db)
     problems_array = lists_problems(1, 5)
     problems_array.each do |this_prob|
       db.execute("INSERT INTO problem (individ_problem, answer) VALUES (?, ?);", [this_prob, calculate_problem(this_prob)])
@@ -160,6 +170,16 @@ end
 
 #method for user interface: prints next number to be solved
 #query of problem table.
+
+def problem_given_to_student(array)
+    random_problem = array.sample
+  random_problem  
+end
+
+
+ current_prob = problem_given_to_student(lists_problems(1, 5))
+
+ 
 
 #method to compare answer entered with answer provided
 # => input: integer, string (of problem to solve) or corresponding Primary Key) problem-set counter starts at 1
@@ -176,21 +196,28 @@ end
 
 
 def compare(user_input_int)
-  if user_input_int == db.execute(answer_query)[0][0]
+  if user_input_int == correct_answer
     p "That is correct!" 
+    # db.execute("UPDATE students_problems SET answered_correct= "True" WHERE id_problem = ?", )
   else 
     p "try again"
+    false
   end
 end
 
 
-answer_query = <<-SQL
-SELECT answer FROM problem WHERE individ_problem = '#{"5 * 3"}'; 
-SQL
 
-p db.execute(answer_query)[0][0]
+correct_answer = db.execute("SELECT answer FROM problem WHERE individ_problem = ?", [current_prob])[0][0]
 
 
+
+
+
+# answer_query = <<-SQL
+# SELECT answer FROM problem WHERE individ_problem = '#{"4 * 4"}'; 
+# SQL
+
+# p db.execute(answer_query)[0][0]
 
 
 
@@ -206,8 +233,17 @@ p db.execute(answer_query)[0][0]
 
 # access_array(db)
 
+puts "enter user name:"
+user_name = gets.chomp
 
+new_student(db, user_name)
+p db.execute("SELECT id FROM student WHERE name = ?", [user_name])[0][0]
 
+puts "what range of numbers will you practice today? if you want to practice all multiplication facts from 1 to 10, enter 1 and then enter 10."
+puts "first number in range:"
+i1 = gets.chomp
+puts "second number in range:"
+i2 = gets.chomp
 
-
-
+puts "what is #{current_prob}?"
+student_solution = gets.chomp
