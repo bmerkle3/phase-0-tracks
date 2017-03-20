@@ -135,8 +135,8 @@ end
 
  
 #query of problem table.
-def problem_given_to_student(array)
-    random_problem = array.sample
+def problem_given_to_student(hashh)
+    random_problem = hashh.to_a.sample
   random_problem  
 end
 
@@ -223,24 +223,49 @@ puts "second number in range:"
 input2 = gets.chomp.to_i
 
 problems_bank = lists_problems(input1, input2)
-makes_hash(problems_bank)
+hash_of_probs = makes_hash(problems_bank)
 
+# correctness = "false"
+hash_of_probs.each do |key, value|
+  correctness = "false"
+  until correctness == "true"
+    puts "what is #{current_prob}?"
+    student_solution = gets.chomp.to_i
+    
+    if student_solution == correct_answer
+        puts "That is correct!" 
+        hash_of_probs[current_prob] = "true"
+        p hash_of_probs[current_prob]
+        correctness = "true"
+      else 
+        puts "nope.try again."
+        correctness = "false"
+    end
+        hash_of_probs.delete(key)
 
-
-correctness = "false"
-until correctness == "true"
-  puts "what is #{current_prob}?"
-  student_solution = gets.chomp.to_i
-  
-  if student_solution == correct_answer
-      puts "That is correct!" 
-      # removes kv pair from hash
-      correctness = "true"
-    else 
-      puts "nope.try again."
-      correctness = "false"
   end
 end
+
+
+# problems_bank.each do |this_prob|
+#   correctness = "false"
+#   until correctness == "true"
+#     puts "what is #{current_prob}?"
+#     student_solution = gets.chomp.to_i
+    
+#     if student_solution == correct_answer
+#         puts "That is correct!" 
+#         # hash_of_probs[current_prob] = "true"
+#         # p hash_of_probs[current_prob]
+#         # hash_of_probs.delete(key)
+#         correctness = "true"
+#       else 
+#         puts "nope.try again."
+#         correctness = "false"
+#     end
+
+#   end
+# end
 
 
 populate_students_prob(db, correctness, user_id, prob_id)
