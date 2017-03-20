@@ -42,6 +42,13 @@ create_students_problems_cmd = <<-SQL
 
 SQL
 
+
+def populate_students_prob(db, true_o_false, students_id, probs_id)
+    # problems_array.each do |this_prob|
+      db.execute("INSERT INTO students_problems (answered_correct, id_student, id_problem) VALUES (?, ?, ?);", [true_o_false, students_id, probs_id])
+    # end 
+end
+
 #create student table (if not already there)
 db.execute(create_student_cmd)
 
@@ -134,9 +141,7 @@ end
 
 
 def populate_students_prob(db, true_o_false, students_id, probs_id)
-    # problems_array.each do |this_prob|
       db.execute("INSERT INTO students_problems (answered_correct, id_student, id_problem) VALUES (?, ?, ?);", [true_o_false, students_id, probs_id])
-    # end 
 end
 
 
@@ -197,7 +202,7 @@ correct_answer = db.execute("SELECT answer FROM problem WHERE individ_problem = 
 
 
 prob_id = db.execute("SELECT id FROM problem WHERE individ_problem = ?", [current_prob])[0][0]
-
+puts "the prob_id is #{prob_id}"
 # answer_query = <<-SQL
 # SELECT answer FROM problem WHERE individ_problem = '#{"4 * 4"}'; 
 # SQL
@@ -230,11 +235,14 @@ if returning_vs_new == "n"
     puts "welcome, #{user_name}!"
     new_student(db, user_name)
     user_id = db.execute("SELECT id FROM student WHERE name = ?", [user_name])[0][0]
+    puts "the user_id is #{user_id}"
   else  
     puts "Thanks for coming back, #{user_name}!" 
     user_id = db.execute("SELECT id FROM student WHERE name = ?", [user_name])[0][0]
+    puts "the user_id is #{user_id}"
 end
 
+user_id = db.execute("SELECT id FROM student WHERE name = ?", [user_name])[0][0]
 
 puts "what range of numbers will you practice today, #{user_name}? If you want to practice all multiplication facts from 1 to 10, enter 1 and then enter 10."
 puts "first number in range:"
@@ -248,14 +256,14 @@ student_solution = gets.chomp.to_i
 
 if student_solution == correct_answer
     puts "That is correct!" 
-    # db.execute("UPDATE students_problems SET answered_correct= "True" WHERE id_problem = ?", )
-    correctness = true
+    correctness = "true"
   else 
     puts "try again"
-    correctness = false
+    correctness = "false"
 end
 
 populate_students_prob(db, correctness, user_id, prob_id)
+
 
 
 
