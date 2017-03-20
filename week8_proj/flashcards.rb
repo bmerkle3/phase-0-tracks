@@ -11,26 +11,26 @@ require 'sqlite3'
 db = SQLite3::Database.new( "mathflashcard.db" )
 
 #delimiters
-create_student_cmd = <<-SQLite3
+create_student_cmd = <<-SQL
   CREATE TABLE IF NOT EXISTS student(
     id INTEGER PRIMARY KEY, 
     name VARCHAR(255)
   );
 
-SQLite3
+SQL
 
-create_problem_cmd = <<-SQLite3
+create_problem_cmd = <<-SQL
   CREATE TABLE IF NOT EXISTS problem(
     id INTEGER PRIMARY KEY, 
     individ_problem VARCHAR(255),
     answer INTEGER
   );
 
-SQLite3
+SQL
 # problem_set INTEGER might be added at later date
 
 #probably move correct and incorrect columns to student table
-create_students_problems_cmd = <<-SQLite3
+create_students_problems_cmd = <<-SQL
   CREATE TABLE IF NOT EXISTS students_problems (
     id INTEGER PRIMARY KEY, 
     answered_incorrect INTEGER, 
@@ -41,7 +41,7 @@ create_students_problems_cmd = <<-SQLite3
     FOREIGN KEY (id_problem) references problem(id)
   );
 
-SQLite3
+SQL
 
 #create student table (if not already there)
 db.execute(create_student_cmd)
@@ -100,9 +100,6 @@ def lists_problems(i1, i2)
   prob_array.shuffle
 end
      
-
-
-
 #method to calculate answers of problems -- 
   # => takes in an array of string of mathematical problems
   # => breaks each position down into array of 3 items, no spaces
@@ -159,7 +156,7 @@ def access_array(db)
 
 end
 
- # access_array(db)
+ 
 
 #method for user interface: prints next number to be solved
 #query of problem table.
@@ -178,24 +175,39 @@ end
 #if questions were answered incorrectly repeat those questions 
 
 
-# def compare(user_input_int)
-#   until user_input_int == "query of answer column from table"
-#     p "try again"
-#   if user_input_int == "query of answer column from table"
-#     p "That is correct!" 
-#   end
-#   end
-  
-# end
+def compare(user_input_int)
+  if user_input_int == db.execute(answer_query)[0][0]
+    p "That is correct!" 
+  else 
+    p "try again"
+  end
+end
+
+
+answer_query = <<-SQL
+SELECT answer FROM problem WHERE individ_problem = '#{"5 * 3"}'; 
+SQL
+
+p db.execute(answer_query)[0][0]
 
 
 
-  
+
+
+
 ########################
 #driver code
  # lists_problems(1, 5)
  # p access_array(lists_problems(0, 5))
  ##############################
-p calculates(lists_problems(0, 10))
+# p calculates(lists_problems(1, 5))
 # p assign_prob_set(lists_problems(1, 10))
+
+
+# access_array(db)
+
+
+
+
+
 
