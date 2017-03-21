@@ -207,6 +207,8 @@ prob_id = db.execute("SELECT id FROM problem WHERE individ_problem = ?", [curren
 
 # while problems_bank.length > 0
   correctness = "false"
+  #put in a db.query???- tyler said for efficiency sake place it here
+  #possibly bring the correct answer into loop?
   until correctness == "true"
  
     puts "what is #{current_prob}?"
@@ -216,7 +218,7 @@ prob_id = db.execute("SELECT id FROM problem WHERE individ_problem = ?", [curren
         puts "That is correct!" 
         correctness = "true"
       else 
-        p correct_answer
+        
         puts "nope.try again."
         correctness = "false"
     end
