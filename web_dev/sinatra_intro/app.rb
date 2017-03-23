@@ -62,11 +62,11 @@ get '/contact/:address' do
   "headquarters is located: #{params[:address]}"
 end
 
-get '/number_1/plus/number_2' do
+get '/add/:number_1/:number_2' do
   one = params[:number_1]
   two = params[:number_2]
   answer = one.to_i + two.to_i
-  "#{params[one]} + #{params[two]} is #{answer}"
+  "#{one} + #{two} is #{answer}"
 end
 
 
