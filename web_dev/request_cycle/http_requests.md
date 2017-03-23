@@ -1,4 +1,4 @@
-1. common http status codes:
+2. common http status codes:
   
   1XX informational responses
   100 continue
@@ -26,7 +26,7 @@
 
   https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
 
-2. Get vs Post requests
+3. Get vs Post requests
 GET requests include all required data in the URL.
   * Parameters remain in browser history because they are part of the URL
   * Can be bookmarked.
@@ -38,6 +38,7 @@ GET requests include all required data in the URL.
   * Can be cached
 
 POST requests supply additional data from the client (browser) to the server in the message body.
+Use when sending sensitive information like passwords.
   * Parameters are not saved in browser history.
   * Can not be bookmarked.
   * The browser usually alerts the user that data will need to be re-submitted.
@@ -48,8 +49,8 @@ POST requests supply additional data from the client (browser) to the server in 
 
 
 
-
-
+4. cookie- is a small piece of data that a server sends to the user's web browser, that may store it and send it back together with the next request to the same server. Typically, it's used to know if two requests came from the same browser allowing to keep a user logged-in, for example. It remembers stateful information for the stateless HTTP protocol.
+The Set-Cookie HTTP response header is used to send cookies from the server to the user agent.
 
 
 
