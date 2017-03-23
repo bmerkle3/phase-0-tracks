@@ -56,7 +56,13 @@ get '/students/:id' do
   student.to_s
 end
 
+get '/students_age/:age' do
+  age = params[:age]
+  students = db.execute("SELECT * FROM students WHERE age=?", age)
+  students.to_s
+  
 
+end
 
 get '/contact/:address' do
   "headquarters is located: #{params[:address]}"
