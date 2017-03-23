@@ -76,3 +76,17 @@ get '/add/:number_1/:number_2' do
 end
 
 
+##############################################################
+#Release 2
+
+#1.  Is Sinatra the only web app library in Ruby? What are some others?
+##it isn't the only web app library. Others include Ruby on Rails, Merb, Nitro, and Camping
+
+#2Are SQLite and the sqlite3 gem your only options for using a database with Sinatra? What are some others?
+## No, they aren't the only options. Other options include Heroku, Mongo, MySQL, PostgreSQL, Firebird...
+
+#3 What is meant by the term 'web stack'?
+## A Web stack is the collection of software required for Web development. At a minimum, a Web stack contains an operating system (OS), a programming language, database software and a Web server.
+
+
+
