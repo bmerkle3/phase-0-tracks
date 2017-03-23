@@ -23,6 +23,14 @@ get '/:person_1/loves/:person_2' do
   "#{params[:person_1]} loves #{params[:person_2]}"
 end
 
+get '/great_job/:person' do
+  person = params[:person]
+  if person
+    "Good job, #{person}!"
+  else
+    "Good job!"
+  end
+end
 
 
 
@@ -49,17 +57,16 @@ get '/students/:id' do
 end
 
 
-get '/great_job/:person' do
-  name = params[:person]
-  if name
-    "Good job, #{:person}!"
-  else
-    "Good job!"
-  end
+
+get '/contact/:address' do
+  "headquarters is located: #{params[:address]}"
 end
 
-
-
-
+get '/number_1/plus/number_2' do
+  one = params[:number_1]
+  two = params[:number_2]
+  answer = one.to_i + two.to_i
+  "#{params[one]} + #{params[two]} is #{answer}"
+end
 
 
