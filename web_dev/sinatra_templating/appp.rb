@@ -24,17 +24,4 @@ post '/students' do
   redirect '/'
 end
 
-
-
-get '/student_campus/:campus' do
-campus = params[:campus]
-@students = db.execute("SELECT * FROM students WHERE campus=?", campus)
-@students.to_s
-erb :student_campus
-end
-
-get '/students_age/:age' do
-  age = params[:age]
-  students = db.execute("SELECT * FROM students WHERE age=?", age)
-  students.to_s
-end
+# add static resources
