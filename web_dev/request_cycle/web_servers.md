@@ -11,3 +11,12 @@ a. You are much more prone to mistakes or software bugs.
 b. a vulnerability or malicious software can cause much more harm, because you gave it full permissions.
 c. You can be victim of your own stupidity (you don't get warning messages).
 You don't need it for most uses, except for administrative work. 
+
+element.nextSibling
+element.offsetWidth
+element.textContext
+element.toString()
+element.nodeValue
+element.isSupported()
+
+https://www.w3schools.com/jsref/dom_obj_all.asp
