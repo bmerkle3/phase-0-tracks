@@ -17,5 +17,7 @@ $(document).ready(function() {
 
 $('img').delay(1900).fadeOut(500, function() {
     $(this).attr('src', 'images/green_tracks.jpeg').fadeIn(700);
+     
+      
 });
 
